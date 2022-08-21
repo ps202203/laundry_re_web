@@ -14,12 +14,12 @@
 <background></background>
   <div id="navbar" class="">
     <div class="inner_wrap">
-      <div id="logo" style="width: 96px; height: 36px;"><a href="index.html">한울빨래방</a></div>
+      <div id="logo" style="width: 96px; height: 36px;"><a href="index">한울빨래방</a></div>
       <div id="link_menu">
         <li><a href="about"><i class="home"></i>회사소개</a></li>
         <li><a href="khjsolution"><i class="solution"></i>솔루션소개</a></li>
         <li><a href="partner"><i class="guide"></i>입점안내</a></li>
-        <li><a href="#"><i class="boss"></i>관리자</a></li>
+        <li><a href="member"><i class="boss"></i>관리자 회원가입</a></li>
         <li>
           <button class="modal-button" href="#myModal"><i class="contact"></i>문의하기</button>
         </li>
