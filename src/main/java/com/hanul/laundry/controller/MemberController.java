@@ -31,7 +31,9 @@ public class MemberController {
 			if( f.isEmpty() ) continue;
 			upload += (upload.equals("") ? "" : ",") + common.fileUpload("store", f, session, req);			
 		}
-		store.setImageurl(upload);
+		store.setImageurl(req.getRequestURL().toString().replace(req.getServletPath(), "") + "/" +upload);
+		//http://192.168.0.7:8080/project/upload/store/2022/08/20/54e6085b-a184-4c54-9a78-45dadd58239a_bubble.gif
+		
 		
 		//화면에서 입력한 정보를 DB에 신규저장한 후
 		StringBuffer msg = new StringBuffer("<script>");

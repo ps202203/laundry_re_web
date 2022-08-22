@@ -28,10 +28,11 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 
 <h3>매장 정보</h3>
 <p class='w-px500'></p>
-<form action='store' method='post'>
+<form action='kjoin' method='post' enctype='multipart/form-data'>
+<!-- 	<form action='store' method='post'> -->
 	<table class='w-px500'>
 	<tr><th class='w-px120'>업체명</th>
-		<td><input type='text' name='phone' maxlength="13"></td>
+		<td><input type='text' name='location' maxlength="13"></td>
 	</tr>
 	
 	<tr><th>사업장주소</th>
@@ -64,31 +65,33 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 	<tr><th>편의시설 유무</th>
 	
 		<td>
-			<label>
-				<input type='checkbox'  value='CCTV' >CCTV
-				<input type='checkbox'  value='오락기' >오락기
-				<input type='checkbox'  value='화장실' >화장실<br>
-				<input type='checkbox'  value='콘센트' >콘센트
-				<input type='checkbox'  value='WIFI' >WIFI
-				<input type='checkbox'  value='코인노래방' >코인노래방
-			</label>
+			<label><input type='checkbox'  name='f_cctv' value='1'>CCTV</label>
+			<label><input type='checkbox'  name='f_game' value='1'>오락기</label>
+			<label><input type='checkbox'  name='f_toilet' value='1'>화장실</label><br>
+			<label><input type='checkbox'  name='f_concent' value='1'>콘센트</label>
+			<label><input type='checkbox'  name='f_wifi' value='1'>WIFI</label>
+			<label><input type='checkbox'  name='f_coin' value='1'>코인노래방</label>
+			
 		</td>
 		</tr>
 		
 		
 		<tr><th>사용가격</th>
 	<td><select name='cost'>
-			<option >5000원</option><option >6000원</option><option >7000원</option><option >8000원</option><option >9000원</option>
-			</option>
-			
+			<c:forEach var='i' begin="5" end="9">
+			<option value='${i*1000}'>${i*1000}원</option>
+<!-- 			<option value='5000'>5000원</option><option  value='6000'>6000원</option><option >7000원</option><option >8000원</option><option >9000원</option> -->
+			</c:forEach>
 		</select>
 	</td>
 </tr>
 
 		<tr><th>세탁기 갯수</th>
-	<td><select name='Machinecount'>
-			<option >1개</option><option >2개</option><option >3개</option><option >4개</option><option >5개</option>
-			</option>
+	<td><select name='machine'>
+		<c:forEach var='i' begin="1" end="5">
+		<option value='${i}'>${i}개</option>
+		</c:forEach>
+<!-- 			<option value='5000'>1개</option><option value='5000'>1개</option><option >3개</option><option >4개</option><option >5개</option> -->
 			
 		</select>
 	</td>
@@ -96,17 +99,18 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 
 <tr><th>위도,경도</th>
 		<td>
-			<input type='text' name='Latitude' >
+			<input type='text' name='latitude' >
 			<div class='valid'>위도를 입력하세요</div>
 			<input type='text' name='longitude' >
 			<div class='valid'>경도를 입력하세요</div>
 		</td>
 	</tr>
+	<!-- <input type="hidden" name="ownerid" value="hong"> -->
 
 </table>
 </form>
 <div class='btnSet'>
-	<a class='btn-fill' onclick='join()'>회원가입</a>
+	<a class='btn-fill' onclick='kjoin()'>회원가입</a>
 	<a class='btn-empty' onclick='history.go(-1)'>취소</a>
 </div>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
@@ -115,54 +119,6 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 <script>
 
 
-//아이디 중복확인 요청
-function id_check(){
-	var $id = $('[name=id]');
-	if( $id.hasClass('chked') ) return;  //이미 중복확인했다면 다시 할 필요없음
-		
-	var data = member.tag_status( $id );
-	if( data.code=='invalid' ){
-		alert( '아이디 중복확인 불필요!\n' + data.desc );
-		$id.focus();
-		return;
-	}
-	
-	$.ajax({
-		url: 'id_check',
-		data: { id: $id.val() },
-		success: function( response ){
-			$id.addClass('chked');
-			//false(사용가능아이디) : true(이미사용중인아이디)
-			response = member.id_usable( !response );
-			$id.siblings('div').text( response.desc )
-					.removeClass().addClass( response.code );
-			
-		},error: function(req,text){
-			alert(text+':'+req.status);
-		}
-	});
-}
-
-$('.chk').keyup(function(e){
-	if( $(this).attr('name')=='id' && e.keyCode==13 ){
-		id_check();
-	}else{
-		//아이디 태그에 뭔가 입력한다면 중복확인했음을 삭제 
-		if( $(this).attr('name')=='id' ) $(this).removeClass('chked')
-			
-		var status = member.tag_status( $(this) );
-		$(this).siblings('div').text( status.desc )
-			.removeClass().addClass( status.code );
-	}
-});
-
-$('[name=birth]').change(function(){
-	$('#delete').css('display', 'inline');
-});
-$('#delete').on('click', function(){
-	$('[name=birth]').val('');
-	$('#delete').css('display', 'none');
-});
 
 
 // 우편번호찾기
@@ -183,48 +139,15 @@ function post(){
 }
 
 //form태그 submit처리
-function join(){
-	if( $('[name=name]').val()=='' ){
-		alert('성명을 입력하세요');
-		$('[name=name]').focus();
-		return;
-	}
-	
-	//아이디인 경우: 중복확인여부
-	if( $('[name=id]').hasClass('chked') ){
-		//중복확인했고 + invalid -> 이미 사용중인 아이디 
-		if( $('[name=id]').siblings('div').hasClass('invalid') ){
-			alert( '회원가입 불가\n' + member.id.unusable.desc );
-			$('[name=id]').focus();
-			return;
-		}
-	}else{
-		//중복확인하지 않은 경우
-		if( ! validate_check( $('[name=id]') ) ) return;
-		else{
-			alert( '회원가입 불가\n' + member.id.valid.desc );
-			$('[name=id]').focus();
-			return;
-		}
-	}
-	
-	//비번, 비번확인, 이메일
-	if( ! validate_check( $('[name=pw]') ) ) return;
-	if( ! validate_check( $('[name=pw_ck]') ) ) return;
-	if( ! validate_check( $('[name=email]') ) ) return;
+function kjoin(){
+	$('[name=f_cctv]').val( $('[name=f_cctv]:checked') ? 1 : 0 ); 
+	$('[name=f_game]').val( $('[name=f_game]:checked') ? 1 : 0 ); 
+	$('[name=f_toilet]').val( $('[name=f_toilet]:checked') ? 1 : 0 ); 
+	$('[name=f_concent]').val( $('[name=f_concent]:checked') ? 1 : 0 ); 
+	$('[name=f_wifi]').val( $('[name=f_wifi]:checked') ? 1 : 0 ); 
+	$('[name=f_coin]').val( $('[name=f_coin]:checked') ? 1 : 0 );
 	
 	$('form').submit();
-}
-
-//각 태그의 상태를 확인
-function validate_check(tag){
-	var data = member.tag_status( tag );
-	if( data.code=='valid' )	return true;
-	else {
-		alert('회원가입 불가\n' + data.desc);
-		tag.focus();
-		return false;
-	}
 }
 </script>
 
