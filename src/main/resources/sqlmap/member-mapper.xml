@@ -4,8 +4,8 @@
 
 <!-- 회원정보신규저장(회원가입) -->
  <insert id='join'>
-insert into ownerinfo (ownerid, password, phone, name )
-values (#{ownerid}, #{password}, #{phone}, #{name})
+insert into ownerinfo (ownerid, password, phone, name, profileurl )
+values (#{ownerid}, #{password}, #{phone}, #{name}, #{profileurl,jdbcType=VARCHAR})
 </insert> 
 
 <!--   회원정보변경저장 

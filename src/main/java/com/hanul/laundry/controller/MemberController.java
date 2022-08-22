@@ -24,7 +24,7 @@ public class MemberController {
 	//회원가입처리 요청
 	@RequestMapping(value="/join", produces="text/html; charset=utf-8") 
 	@ResponseBody
-	public String join(MemberVO vo, StoreVO store,  HttpSession session, HttpServletRequest req, MultipartFile file[]) {
+	public String join(MemberVO vo, StoreVO store,  HttpSession session, HttpServletRequest req,MultipartFile profile, MultipartFile file[]) {
 		//첨부파일 이미지 5개를 imageurl 필드에 한꺼번에 담는다
 		String upload = "";
 		for( MultipartFile f : file ) {	
@@ -33,6 +33,12 @@ public class MemberController {
 		}
 		store.setImageurl(req.getRequestURL().toString().replace(req.getServletPath(), "") + "/" +upload);
 		//http://192.168.0.7:8080/project/upload/store/2022/08/20/54e6085b-a184-4c54-9a78-45dadd58239a_bubble.gif
+		
+		if(!profile.isEmpty()) {
+			vo.setProfileurl(req.getRequestURL().toString().replace(req.getServletPath(), "") + "/" +
+		common.fileUpload("profile", profile, session, req));
+			
+		}
 		
 		
 		//화면에서 입력한 정보를 DB에 신규저장한 후

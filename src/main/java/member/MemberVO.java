@@ -1,7 +1,15 @@
 package member;
 
 public class MemberVO {
-	private String ownerid, password, name, phone;
+	private String ownerid, password, name, phone, profileurl;
+
+	public String getProfileurl() {
+		return profileurl;
+	}
+
+	public void setProfileurl(String profileurl) {
+		this.profileurl = profileurl;
+	}
 
 	public String getOwnerid() {
 		return ownerid;

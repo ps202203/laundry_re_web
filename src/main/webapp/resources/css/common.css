@@ -210,6 +210,11 @@ ul.grid li div:first-child{
 	padding-bottom: 150px;
 	padding-top: 30px;
 }
+.preview img{
+	width: 38px;
+	height: 38px;
+	
+}
 
 .w-pct40 { width:40% }
 .w-pct50 { width:50% }

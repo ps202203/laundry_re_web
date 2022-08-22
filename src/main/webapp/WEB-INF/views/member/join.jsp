@@ -71,6 +71,20 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 <p class='w-px500'></p>
 <form action='join' method='post' enctype='multipart/form-data' back>
 <table class='w-px500'>
+		<tr><th class='w-px120'>프로필 이미지</th>
+		<td><div>
+			
+		<label>
+				<input type='file' name='profile' class='attach-file' >
+				<a><i class="font-btn fa-solid fa-file-arrow-up"></i></a>
+				<span class='preview'></span>
+			</label>
+			<a class='delete'><i class="font-btn fa-solid fa-trash-can"></i></a>
+		</div>
+		</td>
+	
+	</tr>
+
 	<tr><th class='w-px120'> 이름</th>
 		<td><input type='text' name='name'></td>
 	</tr>
