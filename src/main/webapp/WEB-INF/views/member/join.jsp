@@ -7,6 +7,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+.content{
+   opacity : 0.9;
+   border : 2px solid;
+   width:50%;
+   background: white;
+   margin: 150px auto;
+   justify-content: center;
+}
+
+
+.backimg{
+	background: url("img/setakso.png")
+}
 table tr td { text-align:left; padding-left: 10px }
 p { margin: 20px auto; text-align:right; color: #3367d6 }
 .valid, .invalid { font-size:14px; font-weight:bold; } 
@@ -33,7 +46,7 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 </head>
 <body>
 
-<background></background>
+
   <div id="navbar" class="">
     <div class="inner_wrap">
       <div id="logo" style="width: 96px; height: 36px;"><a href="index">한울빨래방</a></div>
@@ -52,10 +65,11 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
       <div id="menu_icon" style="margin: 2px 0px;"></div>
     </div>
   </div>
-
+<div class="backimg">
+<div class='content'>
 <h3 class="sauptop">사업자 가입신청</h3>
 <p class='w-px500'></p>
-<form action='join' method='post' enctype='multipart/form-data'>
+<form action='join' method='post' enctype='multipart/form-data' back>
 <table class='w-px500'>
 	<tr><th class='w-px120'> 이름</th>
 		<td><input type='text' name='name'></td>
@@ -178,9 +192,11 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 
 </table>
 </form>
-<div class='btnSet'>
-	<a class='btn-fill' onclick='join()'>회원가입</a>
-	<a class='btn-empty' onclick='history.go(-1)'>취소</a>
+	<div class='btnSet'>
+		<a class='btn-fill' onclick='join()'>회원가입</a>
+		<a class='btn-empty' onclick='history.go(-1)'>취소</a>
+	</div>	
+</div>
 </div>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
