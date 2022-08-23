@@ -2,8 +2,14 @@ package store;
 
 public class StoreVO {
 	private String location, imageurl, address, latitude, longitude, ownerid;
-	private int f_cctv, f_game, f_toilet, f_concent, f_wifi, f_coin, cost, machine;
+	private int f_cctv, f_game, f_toilet, f_concent, f_wifi, f_coin, cost, machine , storeid;
 	
+	public int getStoreid() {
+		return storeid;
+	}
+	public void setStoreid(int storeid) {
+		this.storeid = storeid;
+	}
 	public String getOwnerid() {
 		return ownerid;
 	}

@@ -102,14 +102,17 @@ $('.attach-file').change(function(){
 	var attached = this.files[0];
 	
 	//선택한 파일이 있는 경우
+		var $label= $(this).closest('label')
 	if( attached ){
 		//선택한 파일명이 file-name 태그안에 보여지게
-		$(this).siblings('.file-name').text( attached.name );
-		$(this).closest('label').siblings('.delete').css('display', 'inline');
+		$(this).siblings('.file-name').text( attached.name );	
+		$(this).siblings('.file-name').val( attached.name );	
+		
+		$label.siblings('.delete').css('display', 'inline');
 		
 		//이미지파일인 경우 미리보기 태그에 이미지가 보여지게
-		if( $(this).siblings('.preview').length > 0 ){
-			var preview = $(this).siblings('.preview');
+		if($label.siblings('.preview').length > 0 ){
+			var preview = $label.siblings('.preview');
 			if( isImage(attached.name) ){
 				preview.html( '<img >' );
 				var reader = new FileReader();
@@ -122,7 +125,8 @@ $('.attach-file').change(function(){
 		}
 	}else{
 		$(this).siblings('.file-name').text('');
-		$(this).closest('label').siblings('.delete').css('display', 'none');
+		$(this).siblings('.file-name').val('');
+		$label.siblings('.delete').css('display', 'none');
 	}
 });
 
@@ -133,8 +137,9 @@ $('.delete').click(function(){
 		var label = $(this).siblings('label');
 		label.children('.file-name').text('');
 		label.children('.attach-file').val('');
+		label.children('.file-name').val('');
 		//이미지미리보기 태그의 이미지를 없앤다
-		label.children('.preview').html('');
+		label.siblings('.preview').html('');
 		$(this).css('display', 'none');
 	});
 

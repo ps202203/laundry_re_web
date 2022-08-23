@@ -9,13 +9,22 @@ values (#{location}, #{address}, #{ownerid}, #{imageurl, jdbcType=VARCHAR}, #{f_
 ,#{latitude},#{longitude},#{cost})
 </insert> 
 
-<!--   회원정보변경저장 
-<update id="update">
-update member set name=#{name}, email=#{email}, gender=#{gender}
-					, social=#{social}
-where id=#{id}
-</update>-->
 
+<update id="update">
+update store set location=#{location}, address=#{address}
+, imageurl=#{imageurl, jdbcType=VARCHAR}, f_cctv=#{f_cctv} ,f_game=#{f_game} 
+,f_toilet=#{f_toilet} ,f_concent=#{f_concent} ,f_wifi=#{f_wifi} ,f_coin=#{f_coin} ,machine=#{machine}
+,latitude=#{latitude},longitude=#{longitude},cost=#{cost}
+where ownerid= #{ownerid}
+</update>
+
+<delete id="delete">
+delete from store where  ownerid= #{ownerid}
+</delete>
+
+<select id="info" resultType="store.StoreVO">
+select * from store where storeid=#{storeid}
+</select>
 <!-- 아이디중복확인(아이디존재여부) -->
 
 <!-- 비밀번호재발급시 salt, 암호화된 비밀번호 변경

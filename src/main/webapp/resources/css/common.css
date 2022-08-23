@@ -215,6 +215,11 @@ ul.grid li div:first-child{
 	height: 38px;
 	
 }
+.middle{
+	display: flex;
+	align-items: center;
+	
+}
 
 .w-pct40 { width:40% }
 .w-pct50 { width:50% }

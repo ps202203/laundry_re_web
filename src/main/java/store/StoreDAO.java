@@ -17,15 +17,20 @@ public class StoreDAO implements StoreService {
 	
 
 	@Override
-	public boolean store_update(StoreVO vo) {
-		// TODO Auto-generated method stub
-		return false;
+	public void store_update(StoreVO vo) {
+		
+		sql.update("store.mapper.update", vo);
 	}
 
 	@Override
-	public boolean store_delete(StoreVO vo) {
-		// TODO Auto-generated method stub
-		return false;
+	public void store_delete(StoreVO vo) {
+		sql.delete("store.mapper.delete", vo);
+	}
+
+	@Override
+	public StoreVO store_info(int storeid) {
+		return sql.selectOne("store.mapper.info", storeid);
+		
 	}
 
 	

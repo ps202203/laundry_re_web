@@ -74,11 +74,11 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 		<tr><th class='w-px120'>프로필 이미지</th>
 		<td><div>
 			
-		<label>
+			<label>
 				<input type='file' name='profile' class='attach-file' >
 				<a><i class="font-btn fa-solid fa-file-arrow-up"></i></a>
-				<span class='preview'></span>
 			</label>
+			<span class='preview'></span>
 			<a class='delete'><i class="font-btn fa-solid fa-trash-can"></i></a>
 		</div>
 		</td>
@@ -149,8 +149,9 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 			<label>
 				<input type='file' name='file' class='attach-file' >
 				<a><i class="font-btn fa-solid fa-file-arrow-up"></i></a>
-				<span class='file-name'></span>
+<!-- 				<span class='file-name'></span> -->
 			</label>
+			<span class='preview'></span>
 			<a class='delete'><i class="font-btn fa-solid fa-trash-can"></i></a><br>
 		</div>
 		</c:forEach>

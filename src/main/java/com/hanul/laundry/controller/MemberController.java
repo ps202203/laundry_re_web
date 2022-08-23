@@ -25,18 +25,18 @@ public class MemberController {
 	@RequestMapping(value="/join", produces="text/html; charset=utf-8") 
 	@ResponseBody
 	public String join(MemberVO vo, StoreVO store,  HttpSession session, HttpServletRequest req,MultipartFile profile, MultipartFile file[]) {
+		String http = req.getRequestURL().toString().replace(req.getServletPath(), "") + "/" ;
 		//첨부파일 이미지 5개를 imageurl 필드에 한꺼번에 담는다
 		String upload = "";
 		for( MultipartFile f : file ) {	
 			if( f.isEmpty() ) continue;
-			upload += (upload.equals("") ? "" : ",") + common.fileUpload("store", f, session, req);			
+			upload += (upload.equals("") ? "" : ",") + http +common.fileUpload("store", f, session, req);			
 		}
-		store.setImageurl(req.getRequestURL().toString().replace(req.getServletPath(), "") + "/" +upload);
+		store.setImageurl(upload);
 		//http://192.168.0.7:8080/project/upload/store/2022/08/20/54e6085b-a184-4c54-9a78-45dadd58239a_bubble.gif
 		
 		if(!profile.isEmpty()) {
-			vo.setProfileurl(req.getRequestURL().toString().replace(req.getServletPath(), "") + "/" +
-		common.fileUpload("profile", profile, session, req));
+			vo.setProfileurl(http +	common.fileUpload("profile", profile, session, req));
 			
 		}
 		
