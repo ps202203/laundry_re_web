@@ -90,7 +90,7 @@ public class StoreController {
 			//화면에서 수정입력한 정보를 DB에 변경저장한 후(비지니스로직)
 			service.store_update(store);
 			//응답할 화면을 연결: 상세화면으로 연결 왜..?
-			return ""; 
+			return "/customer/detail"; 
 		}
 		
 		

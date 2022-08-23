@@ -40,6 +40,13 @@ public class CustomerController {
 		return "customer/detail";
 		
 	}
+	
+	@RequestMapping("profile")
+	public String profile(String userid, Model model) {
+		
+		return "customer/profile";
+		
+	}
 	//점주별 매장 정보 가져오기
 
 

@@ -12,84 +12,22 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="resources/assets/images/favicon.png">
-    <title>AROUNDRY</title>
+    <title>PROFILE</title>
     <!-- Bootstrap Core CSS -->
-    <link href="resources/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="resources/assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
-    <!-- This page CSS -->
-    <!-- chartist CSS -->
-    <link href="resources/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
-    <!--c3 CSS -->
-    <link href="resources/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+    <link href="assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="resources/khj/css/style.css" rel="stylesheet">
-    <!-- Dashboard 1 Page CSS -->
-    <link href="resources/khj/css/pages/dashboard1.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="resources/khj/css/colors/default.css" id="theme" rel="stylesheet">
-    
-  
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css'>
-	<link rel='stylesheet' href='resources/assets/css/yearpicker.css'>
-	<script src='resources/assets/js/yearpicker.js'></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
-
-
-
-
-<script>
-window.onload = function () {
-
-var chart = new CanvasJS.Chart("chartContainer", {
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
-	animationEnabled: true,
-
-	axisX: {
-		interval: 1,
-		intervalType: "month",
-		valueFormatString: "MMM"
-	},
-	axisY:{
-		title: "",
-		includeZero: true,
-		valueFormatString: "#0.000.000원"
-	},
-	data: [{        
-		type: "line",
-		markerSize: 12,
-		xValueFormatString: "MMM",
-		yValueFormatString: "#원",
-		dataPoints: [        
-			{ x: new Date(2022, 00, 1), y: 61, indexLabel: "1월", markerType: "triangle",  markerColor: "#6B8E23" },
-			{ x: new Date(2022, 01, 1), y: 71, indexLabel: "2월", markerType: "triangle",  markerColor: "#6B8E23" },
-			{ x: new Date(2022, 02, 1) , y: 55, indexLabel: "3월", markerType: "triangle", markerColor: "6B8E23" },
-			{ x: new Date(2022, 03, 1) , y: 50, indexLabel: "4월", markerType: "triangle", markerColor: "6B8E23" },
-			{ x: new Date(2022, 04, 1) , y: 65, indexLabel: "5월", markerType: "triangle", markerColor: "#6B8E23" },
-			{ x: new Date(2022, 05, 1) , y: 85, indexLabel: "6월", markerType: "triangle", markerColor: "#6B8E23" },
-			{ x: new Date(2022, 06, 1) , y: 68, indexLabel: "7월", markerType: "triangle", markerColor: "6B8E23" },
-			{ x: new Date(2022, 07, 1) , y: 28, indexLabel: "8월", markerType: "triangle", markerColor: "6B8E23" },
-			{ x: new Date(2022, 08, 1) , y: 34, indexLabel: "9월", markerType: "triangle", markerColor: "#6B8E23" },
-			{ x: new Date(2022, 09, 1) , y: 24, indexLabel: "10월", markerType: "triangle", markerColor: "6B8E23" },
-			{ x: new Date(2022, 10, 1) , y: 44, indexLabel: "11월", markerType: "triangle", markerColor: "#6B8E23" },
-			{ x: new Date(2022, 11, 1) , y: 34, indexLabel: "12월", markerType: "triangle", markerColor: "6B8E23" }
-		]
-	}]
-});
-chart.render();
-
-}
-
-</script>
-
 </head>
 
-<body class="fix-header fix-sidebar card-no-border">
+<body class="fix-header card-no-border fix-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -135,14 +73,14 @@ chart.render();
                     <!--  ============================================================== -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="fa fa-bars"></i></a> </li>
-                        <!--  ============================================================== -->
-                        <!-- Search -->
-                        <!--  ============================================================== -->
+                        <!--  ==============================================================
+                        Search
+                         ============================================================== -->
                         <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="fa fa-search"></i></a>
                             <form class="app-search">
                                 <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="fa fa-times"></i></a></form>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!--  ============================================================== -->
                     <!-- User profile and search -->
                     <!--  ============================================================== -->
@@ -201,139 +139,102 @@ chart.render();
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">매출차트</h3>
+                        <h3 class="text-themecolor">Profile</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active">Profile</li>
+                        </ol>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- Sales Chart and browser state-->
+                <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <!-- Row -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-8">
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                <div class="d-flex no-block">
-                                    <div>
-                                        <h5 class="card-title m-b-0">월간매출</h5>
+                                <center class="m-t-30"> <img src="resources/assets/images/users/5.jpg" class="img-circle" width="150" />
+                                    <h4 class="card-title m-t-10">Hanna Gover</h4>
+                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                                    <div class="row text-center justify-content-md-center">
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
                                     </div>
-                                  <!--   <div class="ml-auto">
-                                        <ul class="list-inline text-center font-12">
-                                            <li><i class="fa fa-circle text-success"></i> SITE A</li>
-                                            <li><i class="fa fa-circle text-info"></i> SITE B</li>
-                                            <li><i class="fa fa-circle text-primary"></i> SITE C</li>
-                                        </ul>
-                                    </div> -->
-                                </div>
-                                            
-                                <div class="" id="chartContainer" style="height: 355px; width: 100%; "></div>
+                                </center>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Sales Chart -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Projects of the Month -->
-                <!-- ============================================================== -->
-                <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-8">
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
+                            <!-- Tab panes -->
                             <div class="card-body">
-                                <div class="d-flex">
-                                    <div>
-                                        <h5 class="card-title">오늘 이용자</h5>
+                                <form class="form-horizontal form-material">
+                                    <div class="form-group">
+                                        <label class="col-md-12">Full Name</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                        </div>
                                     </div>
-                             <!--        <div class="ml-auto">
-                                        <select class="custom-select b-0">
-                                            <option selected="">1월</option>
-                                            <option value="1">2월</option>
-                                            <option value="2">3월</option>
-                                            <option value="3">4월</option>
-                                            <option value="3">5월</option>
-                                            <option value="3">6월</option>
-                                            <option value="3">7월</option>
-                                            <option value="3">8월</option>
-                                            <option value="3">9월</option>
-                                            <option value="3">10월</option>
-                                            <option value="3">11월</option>
-                                            <option value="3">12월</option>
-                                        </select>
-                                    </div> -->
-                                </div>
-                                <div class="table-responsive m-t-20 no-wrap">
-                                    <table class="table vm no-th-brd pro-of-month">
-                                    <colgroup>                                    	
-										<col width="50px">
-										<col width="100px">
-										<col width="150px">
-										<col width="200px">
-									</colgroup>                                                                       
-                                            <tr><th></th>
-                                            	<th>아이디</th>
-                                                <th>이용날짜</th>
-                                                <th>이용금액</th>                                            	
-                                            </tr>                                               
-                                       
-                                        	<c:forEach items="${detail}" var="detail"> 
-                                            <tr style="width:50px"class="active";><td><span class="round">S</span></td>
-                                                <td><h6>${detail.userid}</h6></td>
-                                                <td><fmt:formatDate value="${detail.costdate}" pattern="yy-MM-dd"/></td>
-                                                <td>${detail.cost}원</td>
-                                            </tr>
-                                            </c:forEach>
-                                   
-                                    </table>
-                                </div>
-
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <div class="col-md-12">
+                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" value="password" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Phone No</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Message</label>
+                                        <div class="col-md-12">
+                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12">Select Country</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control form-control-line">
+                                                <option>London</option>
+                                                <option>India</option>
+                                                <option>Usa</option>
+                                                <option>Canada</option>
+                                                <option>Thailand</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-success">Update Profile</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-4">
-                        <div class="card">
-                        <c:forEach items="${info}" var="info">
-                            <div class="up-img" style="background-image:url(${info.imageurl})"></div>
-                            <div class="card-body">                       	
-                                <div><h5 class=" card-title">${info.location}</h5></div>
-                                <span class="label label-info label-rounded">Technology</span>
-                                <p class="m-b-0 m-t-20">주소 : ${info.address}</p>
-                                <div class="d-flex m-t-20">
-                         
-                                    <div class="ml-auto align-self-center">
-                                        <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart-o"></i></a>
-                                        <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-share-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            </c:forEach>
-                        </div>
-                    </div>
                 </div>
-                
-                
-                
-                         
-                
-                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-               <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script> 
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-                
-<script src='https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js'></script>                
-
+                <!-- Row -->
                 <!-- ============================================================== -->
-                <!-- End Notification And Feeds -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- End Page Content -->
+                <!-- End PAge Content -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
@@ -342,7 +243,9 @@ chart.render();
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2018 Adminwrap by wrappixel.com </footer>
+            <footer class="footer">
+                © 2018 Adminwrap by wrappixel.com
+            </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -358,7 +261,7 @@ chart.render();
     <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="resources/assets/node_modules/jquery/jquery.min.js"></script>
-    <!-- Bootstrap popper Core JavaScript -->
+    <!-- Bootstrap tether Core JavaScript -->
     <script src="resources/assets/node_modules/bootstrap/js/popper.min.js"></script>
     <script src="resources/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
@@ -369,19 +272,6 @@ chart.render();
     <script src="resources/khj/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="resources/khj/js/custom.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugins -->
-    <!-- ============================================================== -->
-    <!--morris JavaScript -->
-    <script src="resources/assets/node_modules/raphael/raphael-min.js"></script>
-    <script src="resources/assets/node_modules/morrisjs/morris.min.js"></script>
-    <!--c3 JavaScript -->
-    <script src="resources/assets/node_modules/d3/d3.min.js"></script>
-    <script src="resources/assets/node_modules/c3-master/c3.min.js"></script>
-    <!-- Chart JS -->
-    <script src="resources/khj/js/das<input type="hidden" name="storeid" value="29">hboard1.js"></script>
-    
-    
 </body>
 
 </html>
