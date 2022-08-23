@@ -4,8 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+  <!-- 통합시 지워야함  -->
   <!-- Custom CSS -->
-  <link href=" ${pageContext.request.contextPath}/resources/css/index.css?<%=new java.util.Date()%>'" rel='stylesheet'/>
+  <link href=" ${pageContext.request.contextPath}/resources/css/style.css" rel='stylesheet'/>
+  <link rel="stylesheet" type="text/css" href="resources/css/index.css?<%=new java.util.Date()%>">
+  <!-- Fonts -->
+  <link href=" ${pageContext.request.contextPath}/resources/fonts/fonts_style.css" rel='stylesheet'/>
+    <link rel="shortcut icon" type="image/x-icon" href="resources/images/logo.ico" />
 <title>한울빨래방</title>
 </head>
 <body>
