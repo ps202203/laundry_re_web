@@ -61,6 +61,13 @@ public class HwController {
 			return "member/join";
 		}
 		
+	//로그인 화면요청
+		@RequestMapping("login")
+		public String login(HttpSession ss) {
+			ss.setAttribute("category", "login");
+			return "member/login";
+		}
+	
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {

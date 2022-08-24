@@ -12,7 +12,7 @@
 				<li>광주 남구 경열로 3 2층</li>
 				<li>사업자번호 : 123-45-67890</li>
 				<li>통신판매번호 : 제2022-광주남구-0001호</li>
-				<li>대표메일 : mail@gmail.com</li>
+				<li>대표메일 : project334@naver.com</li>
 			</ul>
 			<ul class='social_group'>
 				<li>
@@ -31,13 +31,13 @@
 					</a>
 				</li>
 				<li class='boss'>
-					<a href='https://maplestory.nexon.com/Home/Main' target='_blank'>
+					<a href='login'>
 						<i class='ceo'></i>
 						<span>관리자</span>
 					</a>
 				</li>
 				<li class='kakao' id='kakao-chat-btn'>
-					<a href='#'>
+					<a href='https://pf.kakao.com/_xgxoHExj' target='_blank'>
 						<img src="https://developers.kakao.com/assets/img/about/logos/channel/consult_small_yellow_pc.png" title='카카오톡 채널 1:1 채팅 버튼' alt='카카오톡 채널 1:1 채팅버튼'>
 					</a>
 				</li>

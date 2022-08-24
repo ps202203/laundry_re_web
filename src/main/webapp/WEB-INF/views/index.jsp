@@ -4,13 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-  <!-- 통합시 지워야함  -->
   <!-- Custom CSS -->
-  <link href=" ${pageContext.request.contextPath}/resources/css/style.css" rel='stylesheet'/>
-  <link rel="stylesheet" type="text/css" href="resources/css/index.css?<%=new java.util.Date()%>">
-  <!-- Fonts -->
-  <link href=" ${pageContext.request.contextPath}/resources/fonts/fonts_style.css" rel='stylesheet'/>
-    <link rel="shortcut icon" type="image/x-icon" href="resources/images/logo.ico" />
+  <link href=" ${pageContext.request.contextPath}/resources/css/index.css?<%=new java.util.Date()%>'" rel='stylesheet'/>
 <title>한울빨래방</title>
 </head>
 <body>
@@ -22,6 +17,7 @@
     <div class="element headphone"></div>
     <div class="inner_wrap">
       <div class="cts">
+      ${loginInfo.ownerid}
         <h1>빨래방 공간 예약 앱 한울빨래방</h1>
         <h2>빨래방, 편의시설 다 모았다!</h2>
         <div class="logo_title"></div>
@@ -56,7 +52,7 @@
     <div class="element"></div>
     <div class="inner_wrap">
       <div class="cts">
-        <h1>가기 전에 미리 예약</h1>
+        <h1>가기 전에 미리 확인</h1>
         <h2>내가 항상 쓰던 그 공간 오늘은 비었을까?</h2>
         <download_label>
           <div>
@@ -76,9 +72,9 @@
     <div class="inner_wrap">
       <div class="element"></div>
       <div class="cts">
-        <h1>10초면 끝!</h1>
-        <h2>1초가 아까운 시험기간,<br>
-          오랜시간 줄서서 기다리지 마세요!</h2>
+        <h1>시간을 확인!</h1>
+        <h2>지루한 빨래시간,<br>
+          세탁물의 남은시간을 실시간으로 알 수 있어 밖에서 볼 일을 편하게!</h2>
         <download_label>
           <div>
             <p>한울빨래방<br>
