@@ -1,5 +1,7 @@
 package com.hanul.laundry.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -77,27 +79,25 @@ public class MemberController {
 	 * ss.setAttribute("category", "join"); return "member/join"; }
 	 */
 	
-	/*
-	 * //로그인처리 요청
-	 * 
-	 * @ResponseBody @RequestMapping("/iot_login") public boolean login(String id,
-	 * String pw, HttpSession session) { //회원id에 해당하는 salt를 조회 String salt =
-	 * service.member_salt(id); //salt 를 사용해 로그인시 입력한 비밀번호를 암호화한 후 //암호화 한 비밀번호를 사용해
-	 * 로그인한다 pw = common.getEncrypt(pw, salt);
-	 * 
-	 * //화면에서 입력한 아이디와 비밀번호가 일치하는 회원정보가 DB에 있는지 조회한 후(비지니스로직) HashMap<String,
-	 * String> map = new HashMap<String, String>(); map.put("id", id); map.put("pw",
-	 * pw); MemberVO vo = service.member_login(map);
-	 * 
-	 * //일치하는 회원정보를 세션에 attribute로 담는다 session.setAttribute("loginInfo", vo);
-	 * 
-	 * //로그인여부를 응답한다. return vo==null ? false : true; }
-	 * 
-	 * 
-	 * //로그인화면 요청
-	 * 
-	 * @RequestMapping("/login") public String login(HttpSession session) {
-	 * session.setAttribute("category", "login"); //응답화면연결 -로그인화면 return
-	 * "member/default/login"; }
-	 */
+	//로그인처리 요청
+			@ResponseBody @RequestMapping("/laundry_login")
+			public boolean login(String id, String pw, HttpSession session) {
+				//회원id에 해당하는 salt를 조회
+				//String salt = service.member_salt(id);
+				//salt 를 사용해 로그인시 입력한 비밀번호를 암호화한 후 
+				//암호화 한 비밀번호를 사용해 로그인한다
+				//pw = common.getEncrypt(pw, salt);
+				
+				//화면에서 입력한 아이디와 비밀번호가 일치하는 회원정보가 DB에 있는지 조회한 후(비지니스로직)
+				HashMap<String, String> map = new HashMap<String, String>();
+				map.put("id", id);
+				map.put("pw", pw);
+				MemberVO vo = service.member_login(map);
+				
+				//일치하는 회원정보를 세션에 attribute로 담는다
+				session.setAttribute("loginInfo", vo);
+				
+				//로그인여부를 응답한다.
+				return vo==null ? false : true;
+			}
 }

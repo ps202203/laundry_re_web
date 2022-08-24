@@ -16,7 +16,9 @@
         <li><a href="about"><i class="home"></i>회사소개</a></li>
         <li><a href="khjsolution"><i class="solution"></i>솔루션소개</a></li>
         <li><a href="partner"><i class="guide"></i>입점안내</a></li>
-        <li><a href="member"><i class="boss"></i>관리자 회원가입</a></li>
+        <!-- <li><a href="member"><i class="boss"></i>관리자 회원가입</a></li> -->
+        <li><a href="login"><i class="boss"></i>관리자 회원가입</a></li>
+        
         <li>
           <button class="modal-button" href="#myModal"><i class="contact"></i>문의하기</button>
         </li>
