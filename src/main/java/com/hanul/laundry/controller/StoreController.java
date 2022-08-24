@@ -39,7 +39,7 @@ public class StoreController {
 		
 			//회원가입 성공여부를 alert으로 띄운 후
 			msg.append("alert('사업장 등록에 성공했습니다'); location='")
-				.append( req.getContextPath() ).append("'; ");
+				.append("detail.cu").append("'; ");
 		}else {
 			msg.append("alert('사업장 등록 오류'); history.go(-1);");
 		}

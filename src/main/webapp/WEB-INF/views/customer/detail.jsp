@@ -28,17 +28,18 @@
     <!-- You can change the theme colors from here -->
     <link href="resources/khj/css/colors/default.css" id="theme" rel="stylesheet">
     
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css'>
 	<link rel='stylesheet' href='resources/assets/css/yearpicker.css'>
 	<script src='resources/assets/js/yearpicker.js'></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
+    
+	<style> 
+		.hide-menu {text-decoration: none;}
+	
+	</style> 
 
 
 
@@ -90,45 +91,37 @@ chart.render();
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
+   
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">AROUNDRY</p>
         </div>
     </div>
-    <!-- ============================================================== -->
+    
     <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
+    
     <div id="main-wrapper">
-        <!-- ============================================================== -->
+    
         <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
+    
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                <!--  ============================================================== -->
+           
                <!--  Logo -->
-                <!--  ============================================================== -->
+           
                 <div class="navbar-header">
                     <a class="navbar-brand" href=detail.cu>
                         <!-- Logo icon --><b>
                             <!-- You can put here icon as well<i class="wi wi-sunset"></i>--> 
                             <!-- Dark Logo icon -->
-                            <img src="resources/assets/images/logo-icon1.png" alt="homepage" class="dark-logo" />
-                            
+                            <img src="resources/assets/images/logo-icon1.png" alt="homepage" class="dark-logo" />                         
                         </b>
-           <!--              End Logo icon
-                        Logo text<span>
-                         dark Logo text
-                         <img src="resources/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                         Light Logo text    
-                         <img src="resources/assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span>  --></a>
+           			</a>
                 </div>
-                <!--  ============================================================== -->
+                
                 <!-- End Logo -->
-                <!--  ============================================================== -->
+                
                 <div class="navbar-collapse">
                     <!--  ============================================================== -->
                    <!--  toggle and nav items -->
@@ -138,21 +131,26 @@ chart.render();
                         <!--  ============================================================== -->
                         <!-- Search -->
                         <!--  ============================================================== -->
-                        <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="fa fa-search"></i></a>
-                            <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="fa fa-times"></i></a></form>
-                        </li>
+                       <form class="container-fluid justify-content-start">
+                       <c:forEach items="${info}" var="info">
+                       <button class="btn btn-outline-success me-2" type="button">${info.location}</button>
+                       <button class="btn btn-outline-success me-2" type="button">${info.location}</button>
+    					
+                    	</c:forEach>
+                    	</form>
                     </ul>
-                    <!--  ============================================================== -->
+                    
                     <!-- User profile and search -->
-                    <!--  ============================================================== -->
+                    
                     <ul class="navbar-nav my-lg-0">
                        <!--  ============================================================== -->
                         <!-- Profile -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="hidden-md-down">서구청점 &nbsp;</span> </a>
-                        </li>
+                         <li class="nav-item dropdown u-pro">
+                            <c:forEach items="${info}" var="info">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="hidden-md-down">${info.location} &nbsp;</span> </a>
+               				</c:forEach>
+                        </li> 
                     </ul>
                 </div>
             </nav>
@@ -169,7 +167,8 @@ chart.render();
                 <!-- Sidebar navigation -->
                 <nav class="sidebar-nav">								
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
+                    	
+                        <li><a class="waves-effect waves-dark" href="store" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="storeinfo" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
                         </li>
@@ -246,26 +245,11 @@ chart.render();
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div>
-                                        <h5 class="card-title">오늘 이용자</h5>
+                                        <h5 class="card-title">이용고객</h5>
                                     </div>
-                             <!--        <div class="ml-auto">
-                                        <select class="custom-select b-0">
-                                            <option selected="">1월</option>
-                                            <option value="1">2월</option>
-                                            <option value="2">3월</option>
-                                            <option value="3">4월</option>
-                                            <option value="3">5월</option>
-                                            <option value="3">6월</option>
-                                            <option value="3">7월</option>
-                                            <option value="3">8월</option>
-                                            <option value="3">9월</option>
-                                            <option value="3">10월</option>
-                                            <option value="3">11월</option>
-                                            <option value="3">12월</option>
-                                        </select>
-                                    </div> -->
+
                                 </div>
-                                <div class="table-responsive m-t-20 no-wrap">
+                                <div class="table-responsive m-t-20 no-wrap" style="overflow:scroll; width:100%; height:431px;">
                                     <table class="table vm no-th-brd pro-of-month">
                                     <colgroup>                                    	
 										<col width="50px">
@@ -280,8 +264,8 @@ chart.render();
                                             </tr>                                               
                                        
                                         	<c:forEach items="${detail}" var="detail"> 
-                                            <tr style="width:50px"class="active";><td><span class="round">S</span></td>
-                                                <td><h6>${detail.userid}</h6></td>
+                                            <tr style="width:50px"class="active"><td><span class="round">A</span></td>
+                                                <td><h6><a href="/app/profile?userid=${detail.userid}"></a></h6></td>
                                                 <td><fmt:formatDate value="${detail.costdate}" pattern="yy-MM-dd"/></td>
                                                 <td>${detail.cost}원</td>
                                             </tr>

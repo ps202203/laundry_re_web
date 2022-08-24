@@ -12,11 +12,16 @@ import org.springframework.stereotype.Repository;
 	public class CustomerInfoDAO implements CustomerInfoService{
 		@Autowired @Qualifier("ateam") private SqlSession sql;
 
-		@Override
-		public List<CustomerInfoVO> customer_info(Integer storeid) {
-			return sql.selectList("customer.mapper.info", storeid);
-		}
+		/*
+		 * @Override public List<CustomerInfoVO> customer_info(Integer storeid) { return
+		 * sql.selectList("customer.mapper.info", storeid); }
+		 */
 		
+		  @Override 
+		  public List<CustomerInfoVO> customer_info(String ownerid) { 
+			  return sql.selectList("customer.mapper.info", ownerid); 
+		  }
+		 	
 	}
 
 

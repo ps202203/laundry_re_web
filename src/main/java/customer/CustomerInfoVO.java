@@ -1,9 +1,37 @@
 package customer;
 
+import java.util.Date;
+
 public class CustomerInfoVO {
 	
-	private Integer storeid, f_cctv, f_game, f_toilet, f_concent, f_wifi, f_coin;
-	private String location, imageurl, address;
+	private Integer storeid, f_cctv, f_game, f_toilet, f_concent, f_wifi, f_coin, cost;
+	private String ownerid, location, imageurl, address, userid;
+	private Date costdate;
+	
+	public String getOwnerid() {
+		return ownerid;
+	}
+	public void setOwnerid(String ownerid) {
+		this.ownerid = ownerid;
+	}
+	public Integer getCost() {
+		return cost;
+	}
+	public void setCost(Integer cost) {
+		this.cost = cost;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public Date getCostdate() {
+		return costdate;
+	}
+	public void setCostdate(Date costdate) {
+		this.costdate = costdate;
+	}
 	public Integer getStoreid() {
 		return storeid;
 	}
