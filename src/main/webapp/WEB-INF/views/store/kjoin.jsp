@@ -110,7 +110,7 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 </table>
 </form>
 <div class='btnSet'>
-	<a class='btn-fill' onclick='kjoin()'>회원가입</a>
+	<a class='btn-fill' onclick='kjoin()'>추가하기</a>
 	<a class='btn-empty' onclick='history.go(-1)'>취소</a>
 </div>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
