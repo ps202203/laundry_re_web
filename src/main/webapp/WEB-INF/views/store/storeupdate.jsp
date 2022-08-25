@@ -108,9 +108,10 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 	</tr>
 
 </table>
-<input type="hidden" name="storeid" value="${store.storeid}">
+<%-- <input type="hidden" name="storeid" value="${store.storeid}" --%>
+<input type="hidden" name="storeid" value=82>
 
-	<input type="hidden" name="ownerid" value="testtest9"> 
+	input type="hidden" name="ownerid" value="testtest9">  
 </form>
 <div class='btnSet'>
 	<a class='btn-fill' onclick='kjoin()'>회원가입</a>

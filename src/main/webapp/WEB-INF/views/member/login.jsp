@@ -48,7 +48,7 @@ function login(){
 			data: { id:$('#id').val(), pw:$('#pw').val() },
 			success: function( response ){
 				if( response )
-					location = '<c:url value="/"/>';
+					location = '<c:url value="/detail.cu"/>';
 				else{
 					alert('아이디나 비밀번호가 일치하지 않습니다!')
 					$('#id').focus();

@@ -2,40 +2,58 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="customer.mapper">
 
+<!-- 매출차트 -->
+<select id="graph" resultType="hashmap">
+select  sum(cost) cost, to_char(costdate, 'mm') month
+from storehistory 
+where storeid= #{storeid}
+and to_char(costdate, 'rrrr') = to_char(sysdate, 'rrrr')
+group by to_char(costdate, 'mm')
+order by month
+</select>
 
 
-<!-- 고객정보상세조회 -->
+<!-- 고객이용정보 -->
+<select id="storelist" resultType="customer.CustomerVO">
+select *
+from store
+where ownerid = #{ownerid}
+</select>
+
+<!-- 고객매출조회 -->
 <select id='detail' resultType="customer.CustomerVO">
+select *
+from storehistory, userinfo
+where storeid=#{storeid}
+and  storehistory.userid = userinfo.userid
+order by costdate desc
+<!-- 
 select DISTINCT storehistory.*
 from store, storehistory
 where store.storeid = storehistory.storeid
-and ownerid='1'
-</select>
+and ownerid=#{ownerid}
+ --></select>
+ 
+ <!-- 점주상세정보 -->
+ 
 
 <!-- 매장정보상세조회 -->
-<select id='info' resultType="customer.CustomerInfoVO">
-select DISTINCT store.*
-from store, storehistory
-where store.storeid = storehistory.storeid
-and ownerid='1'
+<select id='info' resultType="customer.CustomerVO">
+
+select *
+from store
+where store.storeid =#{storeid}
 <!-- select * from store where storeid in(select storeid from store where ownerid='"+hw+"')  -->
 </select>
 
 <!-- 매장이용고객정보상세조회 -->
 <select id="user" resultType="customer.UserVO">
-select DISTINCT userinfo.*
+select userinfo.*
 from userinfo, storehistory
 where userinfo.userid = storehistory.userid
 </select>
 
-<!-- 월간그래프 -->
-<!-- <select id='graph' resultType="customer.CustomerVO">
-select to_char(costdate,'mm') unit, count(*)as count 
-from storehistory 
-where storeid in(select storeid from store where ownerid='"+1+"')
-group by to_char(costdate, 'mm')
-order by 1
-</select> -->
+
 
 
 </mapper>

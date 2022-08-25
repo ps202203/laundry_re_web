@@ -28,6 +28,12 @@
     <!-- You can change the theme colors from here -->
     <link href="resources/khj/css/colors/default.css" id="theme" rel="stylesheet">
     
+    <!-- carousel css -->
+    <link rel="stylesheet" type="text/css" href="resources/kimcss/kimcommon.css?<%=new java.util.Date()%>">
+	<link rel="stylesheet" type="text/css" href="resources/kimfonts/fonts_style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="resources/kimimages/favicon.png" />
+    
+    
     <!-- 부트스트랩 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -47,6 +53,10 @@
 <script>
 window.onload = function () {
 
+	
+	var datas = [];
+
+	
 var chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
 	animationEnabled: true,
@@ -59,29 +69,46 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	axisY:{
 		title: "",
 		includeZero: true,
-		valueFormatString: "#0.000.000원"
+// 		valueFormatString: "#0000000원"
 	},
 	data: [{        
 		type: "line",
 		markerSize: 12,
 		xValueFormatString: "MMM",
 		yValueFormatString: "#원",
-		dataPoints: [        
-			{ x: new Date(2022, 00, 1), y: 61, indexLabel: "1월", markerType: "triangle",  markerColor: "#6B8E23" },
-			{ x: new Date(2022, 01, 1), y: 71, indexLabel: "2월", markerType: "triangle",  markerColor: "#6B8E23" },
-			{ x: new Date(2022, 02, 1) , y: 55, indexLabel: "3월", markerType: "triangle", markerColor: "6B8E23" },
-			{ x: new Date(2022, 03, 1) , y: 50, indexLabel: "4월", markerType: "triangle", markerColor: "6B8E23" },
-			{ x: new Date(2022, 04, 1) , y: 65, indexLabel: "5월", markerType: "triangle", markerColor: "#6B8E23" },
-			{ x: new Date(2022, 05, 1) , y: 85, indexLabel: "6월", markerType: "triangle", markerColor: "#6B8E23" },
-			{ x: new Date(2022, 06, 1) , y: 68, indexLabel: "7월", markerType: "triangle", markerColor: "6B8E23" },
-			{ x: new Date(2022, 07, 1) , y: 28, indexLabel: "8월", markerType: "triangle", markerColor: "6B8E23" },
-			{ x: new Date(2022, 08, 1) , y: 34, indexLabel: "9월", markerType: "triangle", markerColor: "#6B8E23" },
-			{ x: new Date(2022, 09, 1) , y: 24, indexLabel: "10월", markerType: "triangle", markerColor: "6B8E23" },
-			{ x: new Date(2022, 10, 1) , y: 44, indexLabel: "11월", markerType: "triangle", markerColor: "#6B8E23" },
-			{ x: new Date(2022, 11, 1) , y: 34, indexLabel: "12월", markerType: "triangle", markerColor: "6B8E23" }
-		]
+		
+		dataPoints: datas
+// 			[        
+// 			{ x: new Date(2022, 00, 1), y: 61, label: "1월", markerType: "triangle",  markerColor: "#6B8E23" },
+// 			{ x: new Date(2022, 01, 1), y: 71, label: "2월", markerType: "triangle",  markerColor: "#6B8E23" },
+// 			{ x: new Date(2022, 02, 1) , y: 55, label: "3월", markerType: "triangle", markerColor: "6B8E23" },
+// 			{ x: new Date(2022, 03, 1) , y: 50, label: "4월", markerType: "triangle", markerColor: "6B8E23" },
+// 			{ x: new Date(2022, 04, 1) , y: 65, label: "5월", markerType: "triangle", markerColor: "#6B8E23" },
+// 			{ 'x': '05' , 'y': 24, label: "5월", 'markerType': "triangle", 'markerColor': "6B8E23" },
+// 			{ x: '10' , y: 15000, label: "10월", indexLabel: '15000', markerType: "triangle", markerColor: "#6B8E23" },
+// 			{ x: '08' , y: 45000, label: "8월", indexLabel: '45000', markerType: "triangle", markerColor: "6B8E23" },
+// 			{ x: '07' , y: 80000, label: "7월", indexLabel: '80000', markerType: "triangle", markerColor: "6B8E23" },
+// 			{ x: new Date(2022, 08, 1) , y: 34, label: "9월", markerType: "triangle", markerColor: "#6B8E23" },
+// 			{ x: new Date(2022, 10, 1) , y: 44, label: "11월", markerType: "triangle", markerColor: "#6B8E23" },
+// 			{ x: new Date(2022, 11, 1) , y: 34, label: "12월", markerType: "triangle", markerColor: "6B8E23" }
+// 		]
 	}]
 });
+
+var today=new Date();
+today = today.getFullYear();
+<c:forEach items='${graph}' var ='g'>
+	datas.push({
+		x : new Date( today, ${g.MONTH}, 1 ),
+		y : ${g.COST},
+		label: '${g.MONTH}월',
+		markerType: "triangle",
+		markerColor: "#6B8E23",
+		indexLabel: '${g.COST}',
+	});	
+</c:forEach>
+
+
 chart.render();
 
 }
@@ -132,10 +159,9 @@ chart.render();
                         <!-- Search -->
                         <!--  ============================================================== -->
                        <form class="container-fluid justify-content-start">
-                       <c:forEach items="${info}" var="info">
-                       <button class="btn btn-outline-success me-2" type="button">${info.location}</button>
-                       <button class="btn btn-outline-success me-2" type="button">${info.location}</button>
-    					
+                       <input type='hidden' name='storeid' value='0' id='storeid'>
+                       <c:forEach items="${store}" var="info" varStatus='s'>
+                       <button class="btn btn-outline-success me-2" onclick="$('#storeid').val(${info.storeid });  $('form').submit()" type="button">${info.location}</button>
                     	</c:forEach>
                     	</form>
                     </ul>
@@ -147,9 +173,10 @@ chart.render();
                         <!-- Profile -->
                         <!-- ============================================================== -->
                          <li class="nav-item dropdown u-pro">
-                            <c:forEach items="${info}" var="info">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="hidden-md-down">${info.location} &nbsp;</span> </a>
-               				</c:forEach>
+                            
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             <span class="hidden-md-down">${info.location}&nbsp;</span> </a>
+               				
                         </li> 
                     </ul>
                 </div>
@@ -170,12 +197,12 @@ chart.render();
                     	
                         <li><a class="waves-effect waves-dark" href="store" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="storeinfo" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
+                        <li> <a class="waves-effect waves-dark" href="storeinfo?storeid=${info.storeid}" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
+                        <li> <a class="waves-effect waves-dark" href="delete" aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="profile" aria-expanded="false"><img src="resources/assets/images/iconperson.png"/><span class="hide-menu">프로필</span></a>
-                        </li>
+                        <!-- <li> <a class="waves-effect waves-dark" href="profile" aria-expanded="false"><img src="resources/assets/images/iconperson.png"/><span class="hide-menu">프로필</span></a>
+                        </li> -->
                         
                   
                     </ul>
@@ -231,6 +258,22 @@ chart.render();
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex m-b-30 no-block">
+                                    <h5 class="card-title m-b-0 align-self-center"></h5>                                  
+                                </div>
+                                <div id="visitor" style="height:260px; width:100%;">
+                                
+                                
+                                </div>
+								
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Sales Chart -->
@@ -263,9 +306,13 @@ chart.render();
                                                 <th>이용금액</th>                                            	
                                             </tr>                                               
                                        
+                                  
+                                       
+                                   
                                         	<c:forEach items="${detail}" var="detail"> 
-                                            <tr style="width:50px"class="active"><td><span class="round">A</span></td>
-                                                <td><h6><a href="/app/profile?userid=${detail.userid}"></a></h6></td>
+                                            <tr style="width:50px"class="active">
+                                            	<td><span class="round"><img style= background-image:url(${detail.profile})></span></td>
+                                                <td><h6><a href="/profile?userid=${detail.userid}">${detail.userid}</a></h6></td>
                                                 <td><fmt:formatDate value="${detail.costdate}" pattern="yy-MM-dd"/></td>
                                                 <td>${detail.cost}원</td>
                                             </tr>
@@ -281,7 +328,6 @@ chart.render();
                     <!-- Column -->
                     <div class="col-lg-4">
                         <div class="card">
-                        <c:forEach items="${info}" var="info">
                             <div class="up-img" style="background-image:url(${info.imageurl})"></div>
                             <div class="card-body">                       	
                                 <div><h5 class=" card-title">${info.location}</h5></div>
@@ -295,7 +341,6 @@ chart.render();
                                     </div>
                                 </div>
                             </div>
-                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -313,39 +358,20 @@ chart.render();
 <script src='https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js'></script>                
 
-                <!-- ============================================================== -->
-                <!-- End Notification And Feeds -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- End Page Content -->
-                <!-- ============================================================== -->
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer"> © 2018 Adminwrap by wrappixel.com </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
+                           </div>
+                    </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
+        <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="resources/assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap popper Core JavaScript -->
     <script src="resources/assets/node_modules/bootstrap/js/popper.min.js"></script>
     <script src="resources/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
+a    <!-- slimscrollbar scrollbar JavaScript -->
     <script src="resources/khj/js/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->
     <script src="resources/khj/js/waves.js"></script>
@@ -364,6 +390,18 @@ chart.render();
     <script src="resources/assets/node_modules/c3-master/c3.min.js"></script>
     <!-- Chart JS -->
     <script src="resources/khj/js/das<input type="hidden" name="storeid" value="29">hboard1.js"></script>
+    
+    <!-- carousel -->
+    <!-- link_menu JS --> 
+<script type="text/javascript"  src="resources/kimjs/link_menu.js"></script>
+<!-- Menu Scroll JS -->
+<script type="text/javascript"  src="resources/kimjs/menu_scroll.js"></script>
+<!-- Carousel usage JS -->
+<script type="text/javascript"  src="resources/kimjs/carousel_usage.js"></script>
+<!-- Carousel Modal JS -->
+<script type="text/javascript"  src="resources/js/modal.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript" src="resources/js/footer.js"></script>
     
     
 </body>

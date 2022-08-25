@@ -47,18 +47,19 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 	<tr><th>사업장사진</th>
 		<td class='text-left' style='padding-left:10px'>
 		<c:forEach var='i' begin="1" end="5">
-		<div>
+		<div class='middle'>
 			<label>
 				<input type='file' name='file' class='attach-file' >
 				<a><i class="font-btn fa-solid fa-file-arrow-up"></i></a>
-				<span class='file-name'></span>
 			</label>
-			<a class='delete'><i class="font-btn fa-solid fa-trash-can"></i></a><br>
-		</div>
+			<span class='preview'></span>
+			<a class='delete'><i class="font-btn fa-solid fa-trash-can"></i></a>
+			</div>
 		</c:forEach>
 		
 		</td>
 	</tr>
+	
 	
 	
 	
@@ -105,9 +106,9 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 			<div class='valid'>경도를 입력하세요</div>
 		</td>
 	</tr>
-	<!-- <input type="hidden" name="ownerid" value="hong"> -->
 
 </table>
+	<input type="hidden" name="ownerid" value="${loginInfo.ownerid}">
 </form>
 <div class='btnSet'>
 	<a class='btn-fill' onclick='kjoin()'>회원가입</a>

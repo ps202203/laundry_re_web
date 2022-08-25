@@ -5,11 +5,17 @@ import java.util.Date;
 public class CustomerVO {
 	
 	private Integer storeid, f_cctv, f_game, f_toilet, f_concent, f_wifi, f_coin, cost;
-	private String ownerid, location, imageurl, address, userid;
+	private String ownerid, location, imageurl, address, userid, profile;
 	private Date costdate;
 	
 	
 	
+	public String getProfile() {
+		return profile;
+	}
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 	public String getOwnerid() {
 		return ownerid;
 	}

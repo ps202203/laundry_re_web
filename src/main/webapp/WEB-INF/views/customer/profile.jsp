@@ -170,13 +170,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">point</label>
+                                        <label class="col-md-12">포인트</label>
                                         <div class="col-md-12">
-                                            <input type="password" value="password" class="form-control form-control-line">
+                                            <input type="number" placeholder="포인트" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Phone</label>
+                                        <label class="col-md-12">전화번호</label>
                                         <div class="col-md-12">
                                             <input type="text" placeholder="01063965903" class="form-control form-control-line">
                                         </div>
@@ -185,7 +185,7 @@
 
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
+                                            <button class="btn btn-success">수정</button>
                                         </div>
                                     </div>
                                 </form>

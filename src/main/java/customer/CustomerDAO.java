@@ -1,5 +1,6 @@
 package customer;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,12 +18,28 @@ public class CustomerDAO implements CustomerService{
 	 * sql.selectList("customer.mapper.detail", storeid); }
 	 */
 	
-	  public List<CustomerVO> customer_detail(String ownerid) { 
-		  return sql.selectList("customer.mapper.detail", ownerid); 
+	  public List<CustomerVO> customer_detail(int storeid) { 
+		  return sql.selectList("customer.mapper.detail", storeid); 
 	}
-	  public List<UserVO> customer_user(String userid) {
-		  return sql.selectList("customer.mapper.user", userid);
-	  }
+
+	@Override
+	public List<CustomerVO> customer_storelist(String ownerid) {
+		return sql.selectList("customer.mapper.storelist", ownerid);
+	}
+	@Override
+	public List<HashMap<String, Integer>> store_monthlycost(int storeid) {
+		return sql.selectList("customer.mapper.graph", storeid);
+	}
+	@Override
+	public List<UserVO> user_profile(String userid) {
+		return sql.selectList("customer.mapper.user", userid);
+	}
+
+	@Override
+	public CustomerVO customer_store(int storeid) {
+		return sql.selectOne("customer.mapper.info", storeid);
+	}
+
 	 
 
 	/*public List<CustomerVO> customer_graph(String ownerid) {

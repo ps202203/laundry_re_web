@@ -45,6 +45,7 @@ public class StoreController {
 		}
 		msg.append("</script>");
 		//응답화면 연결 - 웰컴
+//		return "customer/detail";
 		return msg.toString();
 	}
 	

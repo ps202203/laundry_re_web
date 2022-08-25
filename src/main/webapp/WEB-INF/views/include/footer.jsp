@@ -3,12 +3,12 @@
 <footer>
 	<div class='inner_wrap'>
 		<logo>
-			<i class='mongddang'></i>
-			<span class='mongddang'>(주)한울빨래방</span>
+			
+			<span class='mongddang'><img src="resources/assets/images/logo-icon1.png"/></span>
 		</logo>
 		<info>
 			<ul>
-				<li>(주)한울빨래방</li>
+				<li>aroundry</li>
 				<li>광주 남구 경열로 3 2층</li>
 				<li>사업자번호 : 123-45-67890</li>
 				<li>통신판매번호 : 제2022-광주남구-0001호</li>
@@ -31,7 +31,8 @@
 					</a>
 				</li>
 				<li class='boss'>
-					<a href='login'>
+					<a href='${empty loginInfo? "login":"detail.cu"}'>
+					
 						<i class='ceo'></i>
 						<span>관리자</span>
 					</a>
