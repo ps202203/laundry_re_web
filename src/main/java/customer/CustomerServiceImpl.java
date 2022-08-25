@@ -12,9 +12,20 @@ public class CustomerServiceImpl implements CustomerService {
 	@Autowired private CustomerDAO dao;
 
 	@Override
-	public List<CustomerVO> customer_detail(Integer storeid) {
-		return dao.customer_detail(storeid);
+	  public List<CustomerVO> customer_detail(String ownerid) { 
+		return dao.customer_detail(ownerid); 
+		}
+	
+	@Override
+		public List<UserVO> customer_user(String userid) {
+		return dao.customer_user(userid);
 	}
+	
+	
+		/*
+		 * public List<CustomerVO> customer_graph(String ownerid) { return
+		 * dao.customer_graph(ownerid); }
+		 */
 
 
 

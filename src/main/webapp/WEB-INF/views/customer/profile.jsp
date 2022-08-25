@@ -14,82 +14,86 @@
     <link rel="icon" type="image/png" sizes="16x16" href="resources/assets/images/favicon.png">
     <title>PROFILE</title>
     <!-- Bootstrap Core CSS -->
-    <link href="assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="resources/khj/css/style.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="resources/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <!--c3 CSS -->
+    <link href="resources/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="resources/khj/css/pages/dashboard1.css" rel="stylesheet">    
     <!-- You can change the theme colors from here -->
     <link href="resources/khj/css/colors/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+
+	<!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+
 </head>
 
-<body class="fix-header card-no-border fix-border">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
+<body class="fix-header fix-sidebar card-no-border">
+   
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">AROUNDRY</p>
         </div>
     </div>
-    <!-- ============================================================== -->
+    
     <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
+    
     <div id="main-wrapper">
-        <!-- ============================================================== -->
+    
         <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
+    
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                <!--  ============================================================== -->
+           
                <!--  Logo -->
-                <!--  ============================================================== -->
+           
                 <div class="navbar-header">
                     <a class="navbar-brand" href=detail.cu>
                         <!-- Logo icon --><b>
                             <!-- You can put here icon as well<i class="wi wi-sunset"></i>--> 
                             <!-- Dark Logo icon -->
-                            <img src="resources/assets/images/logo-icon1.png" alt="homepage" class="dark-logo" />
-                            
+                            <img src="resources/assets/images/logo-icon1.png" alt="homepage" class="dark-logo" />                         
                         </b>
-           <!--              End Logo icon
-                        Logo text<span>
-                         dark Logo text
-                         <img src="resources/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                         Light Logo text    
-                         <img src="resources/assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span>  --></a>
+           			</a>
                 </div>
-                <!--  ============================================================== -->
+                
                 <!-- End Logo -->
-                <!--  ============================================================== -->
+                
                 <div class="navbar-collapse">
                     <!--  ============================================================== -->
                    <!--  toggle and nav items -->
                     <!--  ============================================================== -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="fa fa-bars"></i></a> </li>
-                        <!--  ==============================================================
-                        Search
-                         ============================================================== -->
-                        <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="fa fa-search"></i></a>
-                            <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="fa fa-times"></i></a></form>
-                        </li>
-                    </ul> -->
-                    <!--  ============================================================== -->
+                        <!--  ============================================================== -->
+                        <!-- Search -->
+                        <!--  ============================================================== -->
+                       <form class="container-fluid justify-content-start">
+                       <c:forEach items="${info}" var="info">
+                       <button class="btn btn-outline-success me-2" type="button">${info.location}</button>
+                       <button class="btn btn-outline-success me-2" type="button">${info.location}</button>
+    					
+                    	</c:forEach>
+                    	</form>
+                    </ul>
+                    
                     <!-- User profile and search -->
-                    <!--  ============================================================== -->
+                    
                     <ul class="navbar-nav my-lg-0">
                        <!--  ============================================================== -->
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="hidden-md-down">서구청점 &nbsp;</span> </a>
+                            <c:forEach items="${info}" var="info">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="hidden-md-down">${info.location} &nbsp;</span> </a>
+               				</c:forEach>
                         </li>
                     </ul>
                 </div>
@@ -123,51 +127,25 @@
             </div>
             <!-- End Sidebar scroll -->
         </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
+        
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <div class="row page-titles">
+                      <div class="container-fluid">
+                              <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Profile</h3>
+                        <h3 class="text-themecolor">회원정보</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Profile</li>
+                            <li class="breadcrumb-item active">회원정보</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <!-- Row -->
-                <div class="row">
+                               <div class="row">
                     <!-- Column -->
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body">
                                 <center class="m-t-30"> <img src="resources/assets/images/users/5.jpg" class="img-circle" width="150" />
-                                    <h4 class="card-title m-t-10">Hanna Gover</h4>
-                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
-                                    <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
-                                    </div>
+                                    <h4 class="card-title m-t-10">${info.userid}</h4>                                     
                                 </center>
                             </div>
                         </div>
@@ -180,47 +158,31 @@
                             <div class="card-body">
                                 <form class="form-horizontal form-material">
                                     <div class="form-group">
-                                        <label class="col-md-12">Full Name</label>
+                                        <label class="col-md-12">이름</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                            <input type="text" placeholder="이름" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                            <input type="email" placeholder="kjh--56@naver.com" class="form-control form-control-line" name="example-email" id="example-email">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Password</label>
+                                        <label class="col-md-12">point</label>
                                         <div class="col-md-12">
                                             <input type="password" value="password" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Phone No</label>
+                                        <label class="col-md-12">Phone</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                            <input type="text" placeholder="01063965903" class="form-control form-control-line">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Message</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                         
+
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success">Update Profile</button>

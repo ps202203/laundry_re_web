@@ -28,21 +28,34 @@ public class CustomerController {
 	
 	//점주별 고객상세정보 목록 가져오기	
 	@RequestMapping("/detail.cu")
-	public String detail(Integer storeid, Model model) {
+	
+	 	public String detail(String ownerid, Model model) {
+			/* public String detail(Integer storeid, Model model) { */
 		
-		service.customer_detail(storeid);
-		services.customer_info(storeid);
+		service.customer_detail(ownerid);
+		services.customer_info(ownerid);
 
 		
-		model.addAttribute("detail", service.customer_detail(storeid));
-		model.addAttribute("info", services.customer_info(storeid));
+		/*
+		 * model.addAttribute("detail", service.customer_detail(storeid));
+		 * model.addAttribute("info", services.customer_info(storeid));
+		 */
 		
+		
+		  model.addAttribute("detail", service.customer_detail(ownerid));
+		  model.addAttribute("info", services.customer_info(ownerid));
+			/* model.addAttribute("graph", service.customer_graph(ownerid)); */
+		 		
 		return "customer/detail";
 		
 	}
 	
 	@RequestMapping("profile")
 	public String profile(String userid, Model model) {
+		
+		service.customer_user(userid);
+		
+		model.addAttribute("user", service.customer_user(userid));
 		
 		return "customer/profile";
 		

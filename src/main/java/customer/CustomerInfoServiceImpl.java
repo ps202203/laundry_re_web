@@ -10,9 +10,15 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
 
 	@Autowired private CustomerInfoDAO dao;
 	
-	@Override
-	public List<CustomerInfoVO> customer_info(Integer storeid) {
-		return dao.customer_info(storeid);
-	}
+	
+	  @Override 
+	  public List<CustomerInfoVO> customer_info(String ownerid) { 
+		  return dao.customer_info(ownerid); 
+		  }
+	 
+		/*
+		 * @Override public List<CustomerInfoVO> customer_info(Integer storeid) { return
+		 * dao.customer_info(storeid); }
+		 */
 
 }

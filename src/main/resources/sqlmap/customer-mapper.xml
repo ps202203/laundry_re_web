@@ -6,13 +6,36 @@
 
 <!-- 고객정보상세조회 -->
 <select id='detail' resultType="customer.CustomerVO">
-select * from storehistory where storeid=25
+select DISTINCT storehistory.*
+from store, storehistory
+where store.storeid = storehistory.storeid
+and ownerid='1'
 </select>
 
 <!-- 매장정보상세조회 -->
 <select id='info' resultType="customer.CustomerInfoVO">
-select * from store where storeid=25
+select DISTINCT store.*
+from store, storehistory
+where store.storeid = storehistory.storeid
+and ownerid='1'
+<!-- select * from store where storeid in(select storeid from store where ownerid='"+hw+"')  -->
 </select>
+
+<!-- 매장이용고객정보상세조회 -->
+<select id="user" resultType="customer.UserVO">
+select DISTINCT userinfo.*
+from userinfo, storehistory
+where userinfo.userid = storehistory.userid
+</select>
+
+<!-- 월간그래프 -->
+<!-- <select id='graph' resultType="customer.CustomerVO">
+select to_char(costdate,'mm') unit, count(*)as count 
+from storehistory 
+where storeid in(select storeid from store where ownerid='"+1+"')
+group by to_char(costdate, 'mm')
+order by 1
+</select> -->
 
 
 </mapper>
