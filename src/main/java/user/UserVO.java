@@ -1,7 +1,6 @@
-package customer;
+package user;
 
 public class UserVO {
-	
 	private String userid, name, email, profile, phone;
 	private int point;
 	public String getUserid() {

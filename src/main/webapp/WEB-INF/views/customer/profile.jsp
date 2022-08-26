@@ -76,10 +76,9 @@
                         <!-- Search -->
                         <!--  ============================================================== -->
                        <form class="container-fluid justify-content-start">
-                       <c:forEach items="${info}" var="info">
-                       <button class="btn btn-outline-success me-2" type="button">${info.location}</button>
-                       <button class="btn btn-outline-success me-2" type="button">${info.location}</button>
-    					
+                       <input type='hidden' name='storeid' value='0' id='storeid'>
+                       <c:forEach items="${store}" var="info" varStatus='s'>
+                       <button class="btn btn-outline-success me-2" onclick="$('#storeid').val(${info.storeid });  $('form').submit()" type="button">${info.location}</button>
                     	</c:forEach>
                     	</form>
                     </ul>
@@ -90,11 +89,12 @@
                        <!--  ============================================================== -->
                         <!-- Profile -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown u-pro">
-                            <c:forEach items="${info}" var="info">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="hidden-md-down">${info.location} &nbsp;</span> </a>
-               				</c:forEach>
-                        </li>
+                         <li class="nav-item dropdown u-pro">
+                            
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             <span class="hidden-md-down">${info.location}&nbsp;</span> </a>
+               				
+                        </li> 
                     </ul>
                 </div>
             </nav>
@@ -111,14 +111,15 @@
                 <!-- Sidebar navigation -->
                 <nav class="sidebar-nav">								
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
+                    	
+                        <li><a class="waves-effect waves-dark" href="store" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="storeinfo" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
+                        <li> <a class="waves-effect waves-dark" href="storeinfo?storeid=${info.storeid}" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
+                        <li> <a class="waves-effect waves-dark" href="delete" aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="profile" aria-expanded="false"><img src="resources/assets/images/iconperson.png"/><span class="hide-menu">프로필</span></a>
-                        </li>
+                        <!-- <li> <a class="waves-effect waves-dark" href="profile" aria-expanded="false"><img src="resources/assets/images/iconperson.png"/><span class="hide-menu">프로필</span></a>
+                        </li> -->
                         
                   
                     </ul>
@@ -134,7 +135,7 @@
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">회원정보</h3>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/detail.cu">Home</a></li>
                             <li class="breadcrumb-item active">회원정보</li>
                         </ol>
                     </div>
@@ -144,8 +145,8 @@
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                <center class="m-t-30"> <img src="resources/assets/images/users/5.jpg" class="img-circle" width="150" />
-                                    <h4 class="card-title m-t-10">${info.userid}</h4>                                     
+                                <center class="m-t-30"> <img src="${vo.profile}" class="img-circle" width="150" />
+                                    <h4 class="card-title m-t-10">${vo.userid}</h4>                                     
                                 </center>
                             </div>
                         </div>
@@ -160,25 +161,25 @@
                                     <div class="form-group">
                                         <label class="col-md-12">이름</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="이름" class="form-control form-control-line">
+                                            <input type="text" placeholder="${vo.name}" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" placeholder="kjh--56@naver.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                            <input type="email" placeholder="${vo.email}" class="form-control form-control-line" name="example-email" id="example-email">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">포인트</label>
                                         <div class="col-md-12">
-                                            <input type="number" placeholder="포인트" class="form-control form-control-line">
+                                            <input type="number" placeholder="${vo.point}" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">전화번호</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="01063965903" class="form-control form-control-line">
+                                            <input type="text" placeholder="${vo.phone}" class="form-control form-control-line">
                                         </div>
                                     </div>
                          

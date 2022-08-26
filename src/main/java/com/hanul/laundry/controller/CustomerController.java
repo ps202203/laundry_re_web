@@ -17,13 +17,15 @@ import customer.CustomerInfoServiceImpl;
 import customer.CustomerServiceImpl;
 import customer.CustomerVO;
 import member.MemberVO;
+import user.UserServiceImpl;
+import user.UserVO;
 
 @Controller
 public class CustomerController {
 	
 	@Autowired private CommonService common;
 	@Autowired private CustomerServiceImpl service;	//가맹점주
-	@Autowired private CustomerInfoServiceImpl services; //이용자의 정보	
+	@Autowired private UserServiceImpl services; //이용자의 정보	
 	
 
 	
@@ -33,7 +35,10 @@ public class CustomerController {
 //	 	public String detail( Model model, HttpSession session,@RequestParam(defaultValue = "0") int storeindex ) {		
 		public String detail( Model model, HttpSession session,@RequestParam(defaultValue = "0") int storeid ) {		
 			//public String detail(Integer storeid, Model model) { 
-		String ownerid = ((MemberVO)session.getAttribute("loginInfo")).getOwnerid();
+		MemberVO owner = (MemberVO)session.getAttribute("loginInfo");
+		if( owner==null) return "redirect:login";
+		
+		String ownerid = owner.getOwnerid();
 //		String ownerid = "1";
 //		String ownerid = "testtest9";
 		
@@ -57,25 +62,24 @@ public class CustomerController {
 		  //{ x: new Date(2022, 05, 1) , y: 15000, label: "6월", indexLabel: '15000', markerType: "triangle", markerColor: "#6B8E23" },
 		  model.addAttribute("graph", service.store_monthlycost(storeid));
 		  
-//		  model.addAttribute("info", services.customer_info(ownerid));
-			/* model.addAttribute("graph", service.customer_graph(ownerid)); */
-		 		
+		   		
 		return "customer/detail";
 		
 	}
-	/*
-	 * //공지글 상세화면 요청
-	 * 
-	 * @RequestMapping("/profile") public String detail(String userid, Model model)
-	 * {
-	 * 
-	 * //선택한 공지글정보를 DB에서 조회해와 List<UserVO> vo = service.user_profile(userid); //화면에
-	 * 출력할 수 있도록 Model 에 attribute로 담는다 model.addAttribute("vo", vo);
-	 * 
-	 * //줄바꿈처리를 할 수 있도록 한다 model.addAttribute("crlf", "\r\n"); //carriage return +
-	 * line feed //응답화면연결 - 상세화면 return "notice/profile"; }
-	 */
 
+	//공지글 상세화면 요청
+	@RequestMapping("/profile")
+	public String detail(CustomerVO csvo, Model model) {
+		
+		//선택한 공지글정보를 DB에서 조회해와
+		UserVO vo = services.user_detail(csvo);
+		//화면에 출력할 수 있도록 Model 에 attribute로 담는다
+		model.addAttribute("vo", vo);
+		//줄바꿈처리를 할 수 있도록 한다
+		model.addAttribute("crlf", "\r\n"); //carriage return + line feed		
+		//응답화면연결 - 상세화면
+		return "customer/profile";
+	}
 
 
 	

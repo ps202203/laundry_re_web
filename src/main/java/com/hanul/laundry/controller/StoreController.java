@@ -62,7 +62,7 @@ public class StoreController {
 			//선택한 고객정보를 DB에서 삭제한 후(비지니스로직)
 			service.store_delete(store);
 			//응답할 화면연결: 고객목록화면
-			return "/index";
+			return "redirect:detail.cu";
 		}
 		
 		//고객정보수정저장처리 요청
@@ -91,7 +91,8 @@ public class StoreController {
 			//화면에서 수정입력한 정보를 DB에 변경저장한 후(비지니스로직)
 			service.store_update(store);
 			//응답할 화면을 연결: 상세화면으로 연결 왜..?
-			return "/customer/detail"; 
+			return "redirect:detail.cu"; 
+			
 		}
 		
 		

@@ -26,9 +26,7 @@ public interface CustomerService {
 
 	/* List<CustomerVO> customer_graph(String ownerid); */
 
-	//고객상세조회
-	List<UserVO> user_profile(String userid);
-	
+
 	//고객상세정보
 	
 

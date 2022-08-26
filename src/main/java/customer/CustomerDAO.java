@@ -30,10 +30,7 @@ public class CustomerDAO implements CustomerService{
 	public List<HashMap<String, Integer>> store_monthlycost(int storeid) {
 		return sql.selectList("customer.mapper.graph", storeid);
 	}
-	@Override
-	public List<UserVO> user_profile(String userid) {
-		return sql.selectList("customer.mapper.user", userid);
-	}
+
 
 	@Override
 	public CustomerVO customer_store(int storeid) {

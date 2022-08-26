@@ -35,24 +35,28 @@ and ownerid=#{ownerid}
  --></select>
  
  <!-- 점주상세정보 -->
+ <select id='user' resultType="user.UserVO">
+select *
+from userinfo
+where userinfo.userid=#{userid}
+ </select>
  
 
 <!-- 매장정보상세조회 -->
 <select id='info' resultType="customer.CustomerVO">
-
 select *
 from store
-where store.storeid =#{storeid}
+where store.storeid=#{storeid}
 <!-- select * from store where storeid in(select storeid from store where ownerid='"+hw+"')  -->
 </select>
 
 <!-- 매장이용고객정보상세조회 -->
-<select id="user" resultType="customer.UserVO">
+<!-- <select id="user" resultType="customer.UserVO">
 select userinfo.*
 from userinfo, storehistory
 where userinfo.userid = storehistory.userid
 </select>
-
+ -->
 
 
 

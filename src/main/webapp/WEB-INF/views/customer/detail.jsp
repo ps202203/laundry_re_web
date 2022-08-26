@@ -38,9 +38,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css'>
-	<link rel='stylesheet' href='resources/assets/css/yearpicker.css'>
-	<script src='resources/assets/js/yearpicker.js'></script>
+    
     
 	<style> 
 		.hide-menu {text-decoration: none;}
@@ -52,10 +50,8 @@
 
 <script>
 window.onload = function () {
-
 	
 	var datas = [];
-
 	
 var chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
@@ -69,7 +65,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	axisY:{
 		title: "",
 		includeZero: true,
-// 		valueFormatString: "#0000000원"
+
 	},
 	data: [{        
 		type: "line",
@@ -258,22 +254,25 @@ chart.render();
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-lg-4">
+                  <!-- Column -->  
+                      <div class="col-lg-4">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex m-b-30 no-block">
-                                    <h5 class="card-title m-b-0 align-self-center"></h5>                                  
+                            <div class="up-img" style="background-image:url(${info.imageurl})"></div>
+                            <div class="card-body">                       	
+                                <div><h5 class=" card-title">${info.location}</h5></div>
+                                <span class="label label-info label-rounded">Technology</span>
+                                <p class="m-b-0 m-t-20">주소 : ${info.address}</p>
+                                <div class="d-flex m-t-20">
+                         
+                                    <div class="ml-auto align-self-center">
+                                        <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart-o"></i></a>
+                                        <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-share-alt"></i></a>
+                                    </div>
                                 </div>
-                                <div id="visitor" style="height:260px; width:100%;">
-                                
-                                
-                                </div>
-								
                             </div>
                         </div>
                     </div>
-                    
+                  </div>              
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Sales Chart -->
@@ -312,7 +311,7 @@ chart.render();
                                         	<c:forEach items="${detail}" var="detail"> 
                                             <tr style="width:50px"class="active">
                                             	<td><span class="round"><img style= background-image:url(${detail.profile})></span></td>
-                                                <td><h6><a href="/profile?userid=${detail.userid}">${detail.userid}</a></h6></td>
+                                                <td><h6><a href="profile?userid=${detail.userid}&storeid=${detail.storeid}">${detail.userid}</a></h6></td>
                                                 <td><fmt:formatDate value="${detail.costdate}" pattern="yy-MM-dd"/></td>
                                                 <td>${detail.cost}원</td>
                                             </tr>
@@ -371,7 +370,7 @@ chart.render();
     <!-- Bootstrap popper Core JavaScript -->
     <script src="resources/assets/node_modules/bootstrap/js/popper.min.js"></script>
     <script src="resources/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-a    <!-- slimscrollbar scrollbar JavaScript -->
+    <!-- slimscrollbar scrollbar JavaScript -->
     <script src="resources/khj/js/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->
     <script src="resources/khj/js/waves.js"></script>
@@ -391,18 +390,7 @@ a    <!-- slimscrollbar scrollbar JavaScript -->
     <!-- Chart JS -->
     <script src="resources/khj/js/das<input type="hidden" name="storeid" value="29">hboard1.js"></script>
     
-    <!-- carousel -->
-    <!-- link_menu JS --> 
-<script type="text/javascript"  src="resources/kimjs/link_menu.js"></script>
-<!-- Menu Scroll JS -->
-<script type="text/javascript"  src="resources/kimjs/menu_scroll.js"></script>
-<!-- Carousel usage JS -->
-<script type="text/javascript"  src="resources/kimjs/carousel_usage.js"></script>
-<!-- Carousel Modal JS -->
-<script type="text/javascript"  src="resources/js/modal.js"></script>
-<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script type="text/javascript" src="resources/js/footer.js"></script>
-    
+   
     
 </body>
 

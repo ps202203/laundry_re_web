@@ -15,11 +15,11 @@ update store set location=#{location}, address=#{address}
 , imageurl=#{imageurl, jdbcType=VARCHAR}, f_cctv=#{f_cctv} ,f_game=#{f_game} 
 ,f_toilet=#{f_toilet} ,f_concent=#{f_concent} ,f_wifi=#{f_wifi} ,f_coin=#{f_coin} ,machine=#{machine}
 ,latitude=#{latitude},longitude=#{longitude},cost=#{cost}
-where ownerid= #{ownerid}
+where storeid= #{storeid}
 </update>
 
 <delete id="delete">
-delete from store where  ownerid= #{ownerid}
+delete from store where  storeid= #{storeid}
 </delete>
 
 <select id="info" resultType="store.StoreVO">

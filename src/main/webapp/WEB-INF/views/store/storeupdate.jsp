@@ -108,13 +108,14 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 	</tr>
 
 </table>
-<%-- <input type="hidden" name="storeid" value="${store.storeid}" --%>
-<input type="hidden" name="storeid" value=82>
+	<input type="hidden" name="ownerid" value="${loginInfo.ownerid}">
+<input type="hidden" name="storeid" value="${store.storeid}"/> 
+<!-- <input type="hidden" name="storeid" value=82> -->
 
-	input type="hidden" name="ownerid" value="testtest9">  
+
 </form>
 <div class='btnSet'>
-	<a class='btn-fill' onclick='kjoin()'>회원가입</a>
+	<a class='btn-fill' onclick='kjoin()'>수정</a>
 	<a class='btn-empty' onclick='history.go(-1)'>취소</a>
 </div>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>

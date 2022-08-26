@@ -27,16 +27,15 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<HashMap<String, Integer>> store_monthlycost(int storeid) {
 		return dao.store_monthlycost(storeid);
 	}
-	@Override
-	public List<UserVO> user_profile(String userid) {
-		return dao.user_profile(userid);
-	}
-
 
 	@Override
 	public CustomerVO customer_store(int storeid) {
 		return dao.customer_store(storeid);
 	}
+
+
+
+
 	
 	
 		/*
