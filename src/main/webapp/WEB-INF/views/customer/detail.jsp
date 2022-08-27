@@ -37,13 +37,17 @@
     <!-- 부트스트랩 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  
+  	
+
     
     
-	<style> 
-		.hide-menu {text-decoration: none;}
-	
-	</style> 
+<style>
+    .carousel-inner > .carousel-item > img{
+      /* width: 640px;
+      height: 720px; */
+    }
+
+</style>
 
 
 
@@ -140,7 +144,11 @@ chart.render();
                             <!-- Dark Logo icon -->
                             <img src="resources/assets/images/logo-icon1.png" alt="homepage" class="dark-logo" />                         
                         </b>
-           			</a>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                         <!-- dark Logo text -->
+                         <img src="resources/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                        </span></a>
                 </div>
                 
                 <!-- End Logo -->
@@ -250,28 +258,52 @@ chart.render();
                                     </div> -->
                                 </div>
                                             
-                                <div class="" id="chartContainer" style="height: 355px; width: 100%; "></div>
+                                <div class="" id="chartContainer" style="height: 413px; width: 100%; "></div>
                             </div>
                         </div>
                     </div>
+                    
                   <!-- Column -->  
                       <div class="col-lg-4">
-                        <div class="card">
-                            <div class="up-img" style="background-image:url(${info.imageurl})"></div>
-                            <div class="card-body">                       	
-                                <div><h5 class=" card-title">${info.location}</h5></div>
-                                <span class="label label-info label-rounded">Technology</span>
-                                <p class="m-b-0 m-t-20">주소 : ${info.address}</p>
-                                <div class="d-flex m-t-20">
-                         
-                                    <div class="ml-auto align-self-center">
-                                        <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart-o"></i></a>
-                                        <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-share-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="card">                        	                            
+                            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+							  <div class="carousel-inner" >
+							    <div class="carousel-item active" >
+							      <div class="up-img" style="background-image:url(resources/kimimages/downy.png)"></div>							      
+                              		<div class="card-body">                       	
+		                               <div><h5 class=" card-title">다우니 초고농축 섬유유연제 50L</h5></div>
+		                               <span class="label label-info label-rounded">내일도착</span>
+		                               <p class="m-b-0 m-t-20">가격: 300,000원</p>
+                            		</div>							      
+							    </div>
+							    <div class="carousel-item">
+							       <div class="up-img" style="background-image:url(resources/kimimages/downy123.png)"></div>
+							       	<div class="card-body">                       	
+		                               <div><h5 class=" card-title">다우니 초고농축 생화향기 섬유유연제 50L</h5></div>
+		                               <span class="label label-info label-rounded">내일도착</span>
+		                               <p class="m-b-0 m-t-20">가격: 350,000원</p>
+                            		</div>
+							    </div>
+							    <div class="carousel-item">
+							       <div class="up-img" style="background-image:url(resources/kimimages/downy1234.png)"></div>
+							       	<div class="card-body">                       	
+		                               <div><h5 class=" card-title">다우니 프리미엄 세탁세제 액체형 50L</h5></div>
+		                               <span class="label label-info label-rounded">내일도착</span>
+		                               <p class="m-b-0 m-t-20">가격: 400,000원</p>
+                            		</div>
+							    </div>
+							  </div>
+		<!-- 					  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+							    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							    <span class="visually-hidden">Previous</span>
+							  </button>
+							  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+							    <span class="visually-hidden">Next</span>
+							  </button> -->
+							</div>                           
                         </div>
-                    </div>
+                    </div>                    
                   </div>              
                 </div>
                 <!-- ============================================================== -->
@@ -304,10 +336,6 @@ chart.render();
                                                 <th>이용날짜</th>
                                                 <th>이용금액</th>                                            	
                                             </tr>                                               
-                                       
-                                  
-                                       
-                                   
                                         	<c:forEach items="${detail}" var="detail"> 
                                             <tr style="width:50px"class="active">
                                             	<td><span class="round"><img style= background-image:url(${detail.profile})></span></td>
@@ -325,12 +353,12 @@ chart.render();
                     </div>
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-lg-4">
+                      <div class="col-lg-4">
                         <div class="card">
                             <div class="up-img" style="background-image:url(${info.imageurl})"></div>
                             <div class="card-body">                       	
                                 <div><h5 class=" card-title">${info.location}</h5></div>
-                                <span class="label label-info label-rounded">Technology</span>
+                                <span class="label label-info label-rounded">${info.location}</span>
                                 <p class="m-b-0 m-t-20">주소 : ${info.address}</p>
                                 <div class="d-flex m-t-20">
                          
@@ -389,6 +417,11 @@ chart.render();
     <script src="resources/assets/node_modules/c3-master/c3.min.js"></script>
     <!-- Chart JS -->
     <script src="resources/khj/js/das<input type="hidden" name="storeid" value="29">hboard1.js"></script>
+    
+    
+
+
+
     
    
     

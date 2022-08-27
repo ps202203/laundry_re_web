@@ -7,7 +7,6 @@
     <meta charset="utf-8">
     <title>로그인</title>
     <link href=" ${pageContext.request.contextPath}/resources/css/login.css?<%=new java.util.Date()%>'" rel='stylesheet'/>
-    <link href=" ${pageContext.request.contextPath}/resources/css/headerfooter.css?<%=new java.util.Date()%>'" rel='stylesheet'/>
   </head>
   <body>
   	<div class='sub_wrap'>

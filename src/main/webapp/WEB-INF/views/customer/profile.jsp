@@ -135,7 +135,7 @@
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">회원정보</h3>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/detail.cu">Home</a></li>
+                            <li class="breadcrumb-item"><a href="detail.cu">Home</a></li>
                             <li class="breadcrumb-item active">회원정보</li>
                         </ol>
                     </div>

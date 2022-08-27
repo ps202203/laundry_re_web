@@ -18,7 +18,8 @@
 
 
 .backimg{
-	background: url("img/setakso.png")
+
+	
 }
 table tr td { text-align:left; padding-left: 10px }
 p { margin: 20px auto; text-align:right; color: #3367d6 }
@@ -29,6 +30,7 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 .ui-datepicker table tr, .ui-datepicker table tr td { height: inherit; }
 /* 달력날짜 삭제 이미지가 날짜input 태그 안에 위치하게  */
 #delete { position: relative; right: 30px; }
+
 </style>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="css/common.css?<%=new java.util.Date()%>">
