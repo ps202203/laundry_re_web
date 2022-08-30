@@ -24,7 +24,7 @@
     <!--c3 CSS -->
     <link href="resources/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="resources/khj/css/style.css" rel="stylesheet">
+    <link href="resources/khj/css/styles.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="resources/khj/css/pages/dashboard1.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
@@ -105,11 +105,15 @@ h3{
                 <nav class="sidebar-nav">								
                     <ul id="sidebarnav">
                     	
-                        <li><a class="waves-effect waves-dark" href="store" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
+                        <li><a class="waves-effect waves-dark" href="store?storeid=${param.storeid}" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="storeinfo?storeid=${info.storeid}" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
+                        <li> <a class="waves-effect waves-dark" href="storeinfo?storeid=${param.storeid}" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="delete" aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
+                        <li> <a class="waves-effect waves-dark" 
+                        
+                        onclick="if( confirm('정말 삭제하시겠습니까?') ) href='delete?storeid=${param.storeid}'" 
+                        
+                        aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
                         </li>
                          <li> <a class="waves-effect waves-dark" id='kakao-chat-btn' href='https://pf.kakao.com/_xgxoHExj' target='_blank' aria-expanded="false"><img src="resources/images/kakaotalk.png" title='카카오톡 채널 1:1 채팅 버튼' alt='카카오톡 채널 1:1 채팅버튼'><span class="hide-menu">카톡상담</span></a>
                         </li>

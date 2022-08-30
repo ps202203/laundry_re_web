@@ -217,8 +217,8 @@ chart.render();
                 <nav class="sidebar-nav">								
                     <ul id="sidebarnav">
                     	
-                        <li><a class="waves-effect waves-dark" href="store" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
-                        </li>
+                        <li><a class="waves-effect waves-dark" href="store?storeid=${info.storeid}" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
+                        </li>								
                         <li> <a class="waves-effect waves-dark" href="storeinfo?storeid=${info.storeid}" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
                         </li>										
                         <li> <a class="waves-effect waves-dark" 

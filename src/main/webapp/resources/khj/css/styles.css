@@ -767,7 +767,7 @@ Main sidebar
   position: absolute;
   width: 264px;
   height: 100%;
-  top: -55px;
+  top: -50px;
   z-index: 20;
   padding-top: 70px;
   background: #fff;
@@ -793,7 +793,7 @@ sidebar navigation
 ******************/
 .scroll-sidebar {
   height: 100%; 
-  padding: 30px 0;
+  padding: 40px 0;
   }
   .scroll-sidebar.ps .ps__scrollbar-y-rail {
     left: 2px;
@@ -807,7 +807,7 @@ sidebar navigation
 
 .sidebar-nav {
   background: #fff;
-  padding: 20px 0 0 0px; }
+  padding: 15px 0 0 0px; }
   .sidebar-nav ul {
     margin: 0px;
     padding: 0px; }

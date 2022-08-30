@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>매장추가</title>
-
+<link rel="shortcut icon" type="image/x-icon" href="resources/images/logo.ico" />
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="css/common.css?<%=new java.util.Date()%>">
@@ -58,16 +58,12 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 header {
 	display: none;
 }
-footer {
-	display: none;
-}
+
 .carousel-inner > .carousel-item > img{
       /* width: 640px;
       height: 720px; */
     }
-    aside {
-    	font-family: 'Sunflower', sans-serif;
-    }
+
     a{
     	text-decoration: none;
     }
@@ -81,6 +77,19 @@ footer {
     	display: none;
     }
     
+    body {
+    font-family: 'Dongle', sans-serif;
+    margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
 
 </style>
 
@@ -108,11 +117,15 @@ footer {
                 <nav class="sidebar-nav">								
                     <ul id="sidebarnav">
                     	
-                        <li><a class="waves-effect waves-dark" href="store" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
+                        <li><a class="waves-effect waves-dark" href="store?storeid=${storeid}" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="storeinfo?storeid=${info.storeid}" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
+                        <li> <a class="waves-effect waves-dark" href="storeinfo?storeid=${storeid}" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="delete" aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
+                        <li> <a class="waves-effect waves-dark" 
+                        
+                        onclick="if( confirm('정말 삭제하시겠습니까?') ) href='delete?storeid=${storeid}'" 
+                        
+                        aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
                         </li>
                          <li> <a class="waves-effect waves-dark" id='kakao-chat-btn' href='https://pf.kakao.com/_xgxoHExj' target='_blank' aria-expanded="false"><img src="resources/images/kakaotalk.png" title='카카오톡 채널 1:1 채팅 버튼' alt='카카오톡 채널 1:1 채팅버튼'><span class="hide-menu">카톡상담</span></a>
                         </li>

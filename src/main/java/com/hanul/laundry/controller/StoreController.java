@@ -51,8 +51,9 @@ public class StoreController {
 	
 	//회원가입화면 요청
 	@RequestMapping("/store")
-	public String store(HttpSession ss) {
+	public String store(HttpSession ss, int storeid, Model model ) {
 		ss.setAttribute("category", "kjoin");
+		model.addAttribute("storeid", storeid);
 		return "store/kjoin";
 	}
 	
