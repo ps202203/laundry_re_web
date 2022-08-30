@@ -762,6 +762,17 @@ Main sidebar
   padding-top: 70px;
   background: #fff;
   border-right: 1px solid rgba(120, 130, 140, 0.13); }
+  
+.kjoin-left-sidebar {
+  position: absolute;
+  width: 264px;
+  height: 100%;
+  top: -60px;
+  z-index: 20;
+  padding-top: 70px;
+  background: #fff;
+  border-right: 1px solid rgba(120, 130, 140, 0.13); }
+  
 
 .fix-sidebar .left-sidebar {
   position: fixed; }
@@ -781,7 +792,9 @@ use profile section
 sidebar navigation
 ******************/
 .scroll-sidebar {
-  height: 100%; }
+  height: 100%; 
+  padding: 30px 0;
+  }
   .scroll-sidebar.ps .ps__scrollbar-y-rail {
     left: 2px;
     right: auto;
@@ -2611,8 +2624,8 @@ Form summernote
     padding: 6px 10px 10px;
     border-bottom: 1px solid rgba(120, 130, 140, 0.13); }
 
-.label {
-  display: inline-block; }
+/* .label {
+  display: inline-block; } */
 
 /*============================================================== 
 Form addons page
@@ -2869,10 +2882,10 @@ form p:last-child {
 
 /* Remove default checkbox */
 [type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
+/* [type="checkbox"]:checked {
   position: absolute;
   left: -9999px;
-  opacity: 0; }
+  opacity: 0; } */
 
 [type="checkbox"] {
   /* checkbox aspect */ }

@@ -23,7 +23,7 @@
           <div class="image"></div>
           <div class="title_wrap">
             <div class="coment">
-              <p>빨래 방 친구들 </p>
+              <p>AROUNDRY </p>
             </div>
           </div>
         </div>
@@ -37,10 +37,10 @@
         <div class="inbox"> <i class="price"></i>
           <h2>PRICE</h2>
           <h3>서비스 요금</h3>
-          <p class="price">월정액제</p>
-          <p>저렴한 월정액제로 키오스크 대여가보다 싼 가격에 관리해드립니다.</p>
+          <p class="price">POINT 결제</p>
+          <p>간편한 포인트 결제로 키오스크도 필요없고 간편한 결제시스템.</p>
           <p class="price">부분 기능</p>
-          <p>세탁 시간 확인 및 매출 확인 일부 기능만을 선택해 사용하실 수 있습니다. </p>
+          <p>세탁 시간 확인 및 매출 확인 현재 이용중인 세탁기 확인기능을 하나의 앱과 웹으로 사용하실 수 있습니다. </p>
           <p class="price">일괄납부</p>
           <p>한번만 결제하고 계속 이용하고 싶으신가요? 문의주시면 상담 후, 합리적인 가격으로 제공해드리겠습니다.</p>
         </div>

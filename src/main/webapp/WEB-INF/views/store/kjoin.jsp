@@ -5,32 +5,138 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
+<title>매장추가</title>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="css/common.css?<%=new java.util.Date()%>">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src='js/common.js?<%=new java.util.Date()%>'></script>
+<script src='js/member_check.js?<%=new java.util.Date()%>'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js'></script> 
+
+<!-- Bootstrap Core CSS -->
+   <!--  <link href="resources/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    --> <!-- This page CSS -->
+    <!-- chartist CSS -->
+    <link href="resources/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <!--c3 CSS -->
+    <link href="resources/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="resources/khj/css/style.css" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="resources/khj/css/pages/dashboard1.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="resources/khj/css/colors/default.css" id="theme" rel="stylesheet">
+
+<!-- carousel css -->
+    <link rel="stylesheet" type="text/css" href="resources/kimcss/kimcommon.css?<%=new java.util.Date()%>">
+	<link rel="stylesheet" type="text/css" href="resources/kimfonts/fonts_style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="resources/kimimages/favicon.png" />
+    
+    
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  	
+  	<!-- font -->
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">    
+    
+    <style>
 table tr td { text-align:left; padding-left: 10px }
 p { margin: 20px auto; text-align:right; color: #3367d6 }
-.valid, .invalid { font-size:14px; font-weight:bold; } 
+ .valid, .invalid { font-size:14px; font-weight:bold; } 
 .valid { color:green }
 .invalid { color:red }
 [name=address]{ width:calc(100% - 22px); margin-top:3px }
 .ui-datepicker table tr, .ui-datepicker table tr td { height: inherit; }
 /* 달력날짜 삭제 이미지가 날짜input 태그 안에 위치하게  */
 #delete { position: relative; right: 30px; }
+header {
+	display: none;
+}
+footer {
+	display: none;
+}
+.carousel-inner > .carousel-item > img{
+      /* width: 640px;
+      height: 720px; */
+    }
+    aside {
+    	font-family: 'Sunflower', sans-serif;
+    }
+    a{
+    	text-decoration: none;
+    }
+    h3{
+    	padding: 80px;
+    }
+   	.btnSet {
+   		padding: 50px;
+   	}
+   	#navbar{
+    	display: none;
+    }
+    
+
 </style>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="css/common.css?<%=new java.util.Date()%>">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src='js/common.js?<%=new java.util.Date()%>'></script>
-<script src='js/member_check.js?<%=new java.util.Date()%>'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js'></script>
+
 </head>
 <body>
+
+<aside class="kjoin-left-sidebar">
+            <!-- Sidebar scroll -->
+                            
+                    <a class="navbar-brand" href=detail.cu>
+                        <!-- Logo icon --><b>
+                            <!-- You can put here icon as well<i class="wi wi-sunset"></i>--> 
+                            <!-- Dark Logo icon -->
+                            <img src="resources/assets/images/logo-icon1.png" alt="homepage" class="dark-logo" />                         
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                         <!-- dark Logo text -->
+                         <img src="resources/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                        </span></a>
+                
+            <div class="scroll-sidebar">
+            
+                <!-- Sidebar navigation -->
+                <nav class="sidebar-nav">								
+                    <ul id="sidebarnav">
+                    	
+                        <li><a class="waves-effect waves-dark" href="store" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="storeinfo?storeid=${info.storeid}" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="delete" aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
+                        </li>
+                         <li> <a class="waves-effect waves-dark" id='kakao-chat-btn' href='https://pf.kakao.com/_xgxoHExj' target='_blank' aria-expanded="false"><img src="resources/images/kakaotalk.png" title='카카오톡 채널 1:1 채팅 버튼' alt='카카오톡 채널 1:1 채팅버튼'><span class="hide-menu">카톡상담</span></a>
+                        </li>
+<!--                         <li class="waves-effect waves-dark, kakao" id='kakao-chat-btn'>
+							<a href='https://pf.kakao.com/_xgxoHExj' target='_blank'>
+							<img src="resources/images/kakaotalk.png" title='카카오톡 채널 1:1 채팅 버튼' alt='카카오톡 채널 1:1 채팅버튼'>
+							</a>
+				</li> -->
+                        <!-- <li> <a class="waves-effect waves-dark" href="profile" aria-expanded="false"><img src="resources/assets/images/iconperson.png"/><span class="hide-menu">프로필</span></a>
+                        </li> -->
+                        
+                  
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll -->
+        </aside>
 
 <h3>매장 정보</h3>
 <p class='w-px500'></p>
 <form action='kjoin' method='post' enctype='multipart/form-data'>
 <!-- 	<form action='store' method='post'> -->
-	<table class='w-px500'>
+	<table class='w-px700' style= "height: 700px;">
 	<tr><th class='w-px120'>업체명</th>
 		<td><input type='text' name='location' maxlength="13"></td>
 	</tr>
@@ -38,7 +144,7 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 	<tr><th>사업장주소</th>
 		<td>
 			<a class='btn-fill-s' onclick='post()'>우편번호찾기</a>
-			<input class='w-px50' type='text' name='post' readonly>
+			
 			<input type='text' name='address' readonly>
 			<input type='text' name='address'>
 		</td>
@@ -111,11 +217,38 @@ p { margin: 20px auto; text-align:right; color: #3367d6 }
 	<input type="hidden" name="ownerid" value="${loginInfo.ownerid}">
 </form>
 <div class='btnSet'>
-	<a class='btn-fill' onclick='kjoin()'>회원가입</a>
+	<a class='btn-fill' onclick='kjoin()'>저장</a>
 	<a class='btn-empty' onclick='history.go(-1)'>취소</a>
 </div>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="resources/assets/node_modules/jquery/jquery.min.js"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="resources/assets/node_modules/bootstrap/js/popper.min.js"></script>
+    <script src="resources/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="resources/khj/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="resources/khj/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="resources/khj/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="resources/khj/js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <script src="resources/assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="resources/assets/node_modules/morrisjs/morris.min.js"></script>
+    <!--c3 JavaScript -->
+    <script src="resources/assets/node_modules/d3/d3.min.js"></script>
+    <script src="resources/assets/node_modules/c3-master/c3.min.js"></script>
+    <!-- Chart JS -->
+    <script src="resources/khj/js/das<input type="hidden" name="storeid" value="29">hboard1.js"></script>
+
 
 <script>
 

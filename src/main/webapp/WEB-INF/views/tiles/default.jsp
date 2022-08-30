@@ -9,7 +9,7 @@
 	<c:when test="${category eq 'about'}"><c:set var="title" value="- 회사소개"/></c:when>
 	<c:when test="${category eq 'khjsolution'}"><c:set var="title" value="- 솔루션소개"/></c:when>
 	<c:when test="${category eq 'partner'}"><c:set var="title" value="- 입점안내"/></c:when>
-	<c:when test="${category eq 'join'}"><c:set var="title" value="- 관리자 로그인"/></c:when>
+	<c:when test="${category eq 'join'}"><c:set var="title" value="- 관리자 회원가입"/></c:when>
 	<c:when test="${category eq 'error'}"><c:set var="title" value="- 오류"/></c:when>
 </c:choose>
 

@@ -31,6 +31,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
+  	<!-- font -->
+  	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@500&display=swap" rel="stylesheet">    
+ --><style>
+    .carousel-inner > .carousel-item > img{
+      /* width: 640px;
+      height: 720px; */
+    }
+/*     body {
+    	font-family: 'Sunflower', sans-serif;
+    } */
+    a{
+    	text-decoration: none;
+    }
+    #navbar{
+    	display: none;
+    }
+    
+
+</style>
 
 </head>
 
@@ -61,7 +82,11 @@
                             <!-- Dark Logo icon -->
                             <img src="resources/assets/images/logo-icon1.png" alt="homepage" class="dark-logo" />                         
                         </b>
-           			</a>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                         <!-- dark Logo text -->
+                         <img src="resources/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                        </span></a>
                 </div>
                 
                 <!-- End Logo -->
@@ -91,8 +116,13 @@
                         <!-- ============================================================== -->
                          <li class="nav-item dropdown u-pro">
                             
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%-- <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                              <span class="hidden-md-down">${info.location}&nbsp;</span> </a>
+               				
+               			 --%>	                       
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="${vo.profile}" onerror="this.src='resources/assets/images/person.png'"  class="" /> <span class="hidden-md-down">${vo.userid} &nbsp;</span> </a>
+                        
                				
                         </li> 
                     </ul>
@@ -117,6 +147,8 @@
                         <li> <a class="waves-effect waves-dark" href="storeinfo?storeid=${info.storeid}" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="delete" aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" id='kakao-chat-btn' href='https://pf.kakao.com/_xgxoHExj' target='_blank' aria-expanded="false"><img src="resources/images/kakaotalk.png" title='카카오톡 채널 1:1 채팅 버튼' alt='카카오톡 채널 1:1 채팅버튼'><span class="hide-menu">카톡상담</span></a>
                         </li>
                         <!-- <li> <a class="waves-effect waves-dark" href="profile" aria-expanded="false"><img src="resources/assets/images/iconperson.png"/><span class="hide-menu">프로필</span></a>
                         </li> -->
@@ -145,7 +177,7 @@
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                <center class="m-t-30"> <img src="${vo.profile}" class="img-circle" width="150" />
+                                <center class="m-t-30"><img src="${vo.profile}" onerror="this.src='resources/assets/images/person.png'" class="img-circle" width="150" />
                                     <h4 class="card-title m-t-10">${vo.userid}</h4>                                     
                                 </center>
                             </div>
@@ -182,13 +214,7 @@
                                             <input type="text" placeholder="${vo.phone}" class="form-control form-control-line">
                                         </div>
                                     </div>
-                         
-
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-success">수정</button>
-                                        </div>
-                                    </div>
+                        
                                 </form>
                             </div>
                         </div>
@@ -200,29 +226,12 @@
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer">
-                © 2018 Adminwrap by wrappixel.com
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
+            
         </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
     <script src="resources/assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="resources/assets/node_modules/bootstrap/js/popper.min.js"></script>

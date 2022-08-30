@@ -19,7 +19,7 @@ where storeid= #{storeid}
 </update>
 
 <delete id="delete">
-delete from store where  storeid= #{storeid}
+delete from store  where  storeid= #{storeid}
 </delete>
 
 <select id="info" resultType="store.StoreVO">

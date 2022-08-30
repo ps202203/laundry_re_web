@@ -1,7 +1,9 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
-* { font-family: 'Noto Sans KR', sans-serif; }
+* {
+    	font-family: 'Sunflower', sans-serif;
+    }
 body {
 	margin: 0 auto;
 	text-align: center;
@@ -80,27 +82,27 @@ a:link, a:visited { color:inherit; text-decoration:none; }
 a.btn-fill, a.btn-empty {
 	height:28px;
 	padding: 3px 15px; 
-	border:1px solid #3367d6;
+	border:1px solid #4160A8;
 	border-radius:3px; 
-	box-shadow:2px 2px 3px #022d72; 
+	box-shadow:2px 2px 3px #fff; 
 } 
 a.btn-fill{
-	background-color: #3367d6;	
+	background-color: #4160A8;	
 	color:#fff;
 }
 a.btn-empty {
 	background-color: #fff;
-	color:#3367d6;	
+	color:#4160A8;	
 }
 a.btn-fill-s{
 	padding: 1px 10px;
 	border:1px solid #c4dafc;
 	border-radius:3px;
-	background-color:#b1cdfa;
-	color:#0000cd;
+	background-color:#c4dafc;
+	color:#000;
 	font-size:13px;
 	font-weight:bold;
-	box-shadow:2px 2px 2px #022d72;
+	box-shadow:2px 2px 2px #c4dafc;
 }
 
 .sauptop{
@@ -147,7 +149,7 @@ a.btn-fill-s{
 }
 .page-list a:hover { 
 	background-color: rgba(0, 64, 255, 0.1); 
-	color:#0040ff; 
+	color:#000; 
 }
 
 .img-box { display: flex;  align-items: center; }

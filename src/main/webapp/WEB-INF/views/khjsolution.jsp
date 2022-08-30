@@ -233,7 +233,7 @@
 		</div>
 		<div class="contens">
 			<div class="bottom_btn_group">
-				<button onclick="location.href='partner.html'"><i class="guide"></i><span>입점안내 바로가기</span></button>
+				<button onclick="location.href='partner.jsp'"><i class="guide"></i><span>입점안내 바로가기</span></button>
 				<button
 					onclick="window.open('https://kitworks.s3.ap-northeast-2.amazonaws.com/%EC%8A%A4%ED%84%B0%EB%94%94%EB%AA%A8%EC%95%84+%EC%86%8C%EA%B0%9C%EC%84%9C.pdf');">
 					<i class="download"></i><span>소개서 다운로드</span>

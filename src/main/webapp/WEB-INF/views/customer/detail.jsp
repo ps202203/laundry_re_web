@@ -38,14 +38,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   	
-
-    
-    
-<style>
+  	<!-- font -->
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@500&display=swap" rel="stylesheet">    
+	
+	<!-- alert -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
+	<style>
     .carousel-inner > .carousel-item > img{
       /* width: 640px;
       height: 720px; */
     }
+     body {
+    	/* font-family: 'Sunflower', sans-serif; */
+    	/* font-size: 0rem; */
+    } 
+    a{
+    	text-decoration: none;
+    }
+
+        #navbar{
+    	display: none;
+    	
+    }
+    
 
 </style>
 
@@ -179,7 +197,7 @@ chart.render();
                          <li class="nav-item dropdown u-pro">
                             
                             <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             <span class="hidden-md-down">${info.location}&nbsp;</span> </a>
+                            <img src="${vo.profile}"  class="" /> <span class="hidden-md-down">${info.location}&nbsp;</span> </a>
                				
                         </li> 
                     </ul>
@@ -202,9 +220,20 @@ chart.render();
                         <li><a class="waves-effect waves-dark" href="store" aria-expanded="false"><img src="resources/assets/images/iconplus.png"/><span class="hide-menu">매장추가</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="storeinfo?storeid=${info.storeid}" aria-expanded="false"><img src="resources/assets/images/iconmodify.png"/><span class="hide-menu">매장수정</span></a>
+                        </li>										
+                        <li> <a class="waves-effect waves-dark" 
+                        
+                        onclick="if( confirm('정말 삭제하시겠습니까?') ) href='delete?storeid=${info.storeid}'" 
+                        
+                        aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="delete" aria-expanded="false"><img src="resources/assets/images/iconsdelete.png"/><span class="hide-menu">매장삭제</span></a>
+                         <li> <a class="waves-effect waves-dark" id='kakao-chat-btn' href='https://pf.kakao.com/_xgxoHExj' target='_blank' aria-expanded="false"><img src="resources/images/kakaotalk.png" title='카카오톡 채널 1:1 채팅 버튼' alt='카카오톡 채널 1:1 채팅버튼'><span class="hide-menu">카톡상담</span></a>
                         </li>
+<!--                         <li class="waves-effect waves-dark, kakao" id='kakao-chat-btn'>
+							<a href='https://pf.kakao.com/_xgxoHExj' target='_blank'>
+							<img src="resources/images/kakaotalk.png" title='카카오톡 채널 1:1 채팅 버튼' alt='카카오톡 채널 1:1 채팅버튼'>
+							</a>
+				</li> -->
                         <!-- <li> <a class="waves-effect waves-dark" href="profile" aria-expanded="false"><img src="resources/assets/images/iconperson.png"/><span class="hide-menu">프로필</span></a>
                         </li> -->
                         
@@ -338,7 +367,7 @@ chart.render();
                                             </tr>                                               
                                         	<c:forEach items="${detail}" var="detail"> 
                                             <tr style="width:50px"class="active">
-                                            	<td><span class="round"><img style= background-image:url(${detail.profile})></span></td>
+                                            	<td><span class="round"><img src="${detail.profile}" onerror="this.src='resources/assets/images/person.png'" class="round" width="35" /></span></td>
                                                 <td><h6><a href="profile?userid=${detail.userid}&storeid=${detail.storeid}">${detail.userid}</a></h6></td>
                                                 <td><fmt:formatDate value="${detail.costdate}" pattern="yy-MM-dd"/></td>
                                                 <td>${detail.cost}원</td>

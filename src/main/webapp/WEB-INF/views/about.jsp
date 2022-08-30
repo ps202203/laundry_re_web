@@ -12,7 +12,7 @@
   <link href=" ${pageContext.request.contextPath}/resources/fonts/fonts_style.css" rel='stylesheet'/>
     <link rel="shortcut icon" type="image/x-icon" href="resources/images/logo.ico" />
 <!-- 지울예정  -->
-<title>한울빨래방 - 회사소개</title>
+<title>AROUNDRY - 회사소개</title>
 </head>
 <body>
  
@@ -26,9 +26,8 @@
         <div class="inbox">
           <i class="company"></i>
           <h2>COMPANY</h2>
-          <h3>형재컴퍼니</h3>
-          <p>복사 붙여넣기에 대한 노하우를 가진 전문가들로 구성되어, 이미 편리한것을 조금 더 편리하게 만드는 일을하며<br>
-            현재는 다른 사이트의 코드를 긁어오는 일을 하고있습니다.</p>
+          <h3>RAINOK</h3>
+          <p>세탁을 기다릴때 보내던 지루한 시간을 현명하게 소비를 해보자는 생각을 시작으로 이 기획을 시작하게 되었다 </p>
         </div>
       </div>
     </div>
@@ -38,16 +37,15 @@
           <i class="ceo"></i>
           <h2>GREETING</h2>
           <h3>대표인사말</h3>
-          <p>수많은 플랫폼과 사이트의 코드를 훔쳐보며 코드를 긁어와 다양한 지식을 일방적으로 배우고 있습니다.</p>
+          <p></p>
           <div class="profile">
             <h1>주요 프로필</h1>
-            <ul>
-              <li>학력 : 피자스쿨</li>
-              <li>대표이력 : ㈜형재컴퍼니 대표이사 (2019. 8 ~ 현재)</li>
+            <ul>          
+              <li>대표이력 : AROUNDRY프로젝트 (2022.6 ~ 2022.9)</li>
             </ul>
           </div>
           <div class="signature">
-            <p class="name"><small>(주)형재컴퍼니 대표</small>장형재 </p>
+            <p class="name"><small>(주)AROUNDRY 대표</small>강민재 </p>
           </div>
         </div>
       </div>
@@ -60,51 +58,43 @@
         <i class="history"></i>
         <h2>HISTORY</h2>
         <h3>연혁</h3>
-        <p>없는것도 뻇어서 결제하게 하는 시대착오적인 기업입니다.</p>
+        <p></p>
         <div class="table_wrap">
           <table>
             <tbody>
               <tr>
-                <td class="bgtitle" rowspan="1">2021</td>
-                <td class="bgtitlem">2<small>월</small></td>
+                <td class="bgtitle" rowspan="1">2022</td>
+                <td class="bgtitlem">6<small>월</small></td>
                 <td class="">
                   <ul>
-                    <li>2021년 2월</li>
-                  </ul>
-                </td>
-              </tr>
-              <td class="bgtitle" rowspan="1">2020</td>
-              <td class="bgtitlem">7<small>월</small></td>
-              <td class="">
-                <ul>
-                  <li>2020년 7월</li>
-                </ul>
-              </td>
-              </tr>
-              <tr>
-                <td class="bgtitle" rowspan="3">2019</td>
-                <td class="bgtitlem">12<small>월</small></td>
-                <td class="">
-                  <ul>
-                    <li>2019년 12월</li>
-                    <li>나 등장</li>
-                    <li>ㅁ</li>
+                    <li>프로젝트 시작</li>
                   </ul>
                 </td>
               </tr>
               <tr>
-                <td class="bgtitlem">11<small>월</small></td>
+                <td class="bgtitle" rowspan="1">2022</td>
+                <td class="bgtitlem">7<small>월</small></td>
                 <td class="">
                   <ul>
-                    <li>2019년 11월<small>(24일에 제 생일임)</small></li>
+                    <li>안드로이드 제작</li>
                   </ul>
                 </td>
               </tr>
               <tr>
-                <td class="bgtitlem">08<small>월</small></td>
+                <td class="bgtitle" rowspan="1">2022</td>
+                <td class="bgtitlem">8<small>월</small></td>
                 <td class="">
                   <ul>
-                    <li>8월 15일<small>(에 연휴임)</small></li>
+                    <li>웹 제작, iot 제작</li>
+                  </ul>
+                </td>
+              </tr>
+               <tr>
+                <td class="bgtitle" rowspan="1">2022</td>
+                <td class="bgtitlem">9<small>월</small></td>
+                <td class="">
+                  <ul>
+                    <li>프로젝트 완료</li>
                   </ul>
                 </td>
               </tr>
@@ -138,7 +128,7 @@
     </div>
     <div class="contens">
       <div class="bottom_btn_group">
-        <button onclick="location.href='solution.jsp'"><i class="solution"></i><span>솔루션소개 바로가기</span></button>
+        <button onclick="location.href='khjsolution.jsp'"><i class="solution"></i><span>솔루션소개 바로가기</span></button>
 <!--    <button onclick="location.href='solution.jsp'"><i class="solution"></i><span>솔루션소개 바로가기</span></button> -->
      	
       </div>

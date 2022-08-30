@@ -8,16 +8,23 @@
 <title>Insert title here</title>
 <style>
 .content{
+   position: relative;
    opacity : 0.9;
    border : 2px solid;
    width:50%;
    background: white;
    margin: 150px auto;
    justify-content: center;
+   top: 15%;
 }
 
 
 .backimg{
+	background-image: url(https://washenjoy.co.kr/wp-content/uploads/2020/10/%EC%9B%8C%EC%8B%9C%EC%97%94%EC%A1%B0%EC%9D%B4_%EC%A4%91%EB%9E%91%EB%A9%B4%EB%AA%A9%EC%A0%90_1.jpg);
+	background-size:1900px 1850px;
+	width: 1900px;
+	height: 1800px;
+	
 
 	
 }
